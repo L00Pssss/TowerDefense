@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Profiling;
 using UnityEngine;
 
-namespace SpaceShooter
+namespace TowerDefense
 {
     /// <summary>
     /// Летательный аппарат 2Д.

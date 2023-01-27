@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace SpaceShooter
+namespace TowerDefense
 {
     /// <summary>
     /// Уничтожаемый объект на сцене. То что может иметь хит поинты.
@@ -26,7 +26,7 @@ namespace SpaceShooter
         /// <summary>
         /// Текущие хит поинты
         /// </summary>
-        private int m_CurrentHitPoints;
+        [SerializeField]private int m_CurrentHitPoints;
         public int HitPoints => m_CurrentHitPoints;
 
         #endregion
