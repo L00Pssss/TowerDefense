@@ -6,7 +6,7 @@ namespace TowerDefense
     public class Tower : MonoBehaviour
     {
         [SerializeField] private float m_Radius = 5f;
-        private Turret[] turrets;
+        [SerializeField ]private Turret[] turrets;
         private Destructible target = null;
 
         private void Start()
@@ -26,7 +26,7 @@ namespace TowerDefense
                         turret.Fire();
                     }
                 }
-                else { turrets = null; }
+                else { target = null; }
             } 
             else
             {

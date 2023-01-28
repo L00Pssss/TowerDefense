@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 514515783494953547}
   - component: {fileID: 514515783494953545}
   - component: {fileID: 514515783494953546}
+  - component: {fileID: 9029497959477096}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -105,6 +106,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9029497959477096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514515783494953548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84aafadee0336294c8b3db3b0b68b55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &514515783951533660
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +129,7 @@ GameObject:
   - component: {fileID: 514515783951533659}
   - component: {fileID: 6175638207946752635}
   - component: {fileID: 542735759902026462}
-  - component: {fileID: 1079371631}
+  - component: {fileID: 2560829080579406474}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -185,11 +198,11 @@ MonoBehaviour:
   m_TeamId: 0
   m_ScoreValue: 0
   m_Mass: 1
-  m_Thrust: 10
+  m_Thrust: 1000
   m_Mobility: 1000
-  m_MaxLinearVelocity: 10
-  m_MaxAngularVelocity: 1000
---- !u!114 &1079371631
+  m_MaxLinearVelocity: 1
+  m_MaxAngularVelocity: 360
+--- !u!114 &2560829080579406474
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,7 +211,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 514515783951533660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3353585621f9eee4d8c10b081a90cd9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 44b432c86e74a99448fb87140062a791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_AIBehaviour: 1

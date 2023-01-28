@@ -20,7 +20,12 @@ namespace TowerDefense
 
             for (int i = 0; i < points.Length; i++)
             {
-              Gizmos.DrawLine(points[i].transform.position, points[i + 1].transform.position);
+              int increment = 1;
+                if (points.Length == i + 1)
+                {
+                    increment = 0;
+                }
+              Gizmos.DrawLine(points[i].transform.position, points[i + increment].transform.position);
             }
 
         }

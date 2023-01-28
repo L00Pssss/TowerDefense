@@ -7,6 +7,8 @@ namespace TowerDefense
 
     public class EntitySpawner : MonoBehaviour
     {
+
+        [SerializeField] private Path m_path;
         /// <summary>
         /// Ссылки на то что спавнить.
         /// </summary>
@@ -75,6 +77,10 @@ namespace TowerDefense
                 var e = Instantiate(prefabToSpawn);
 
                 e.transform.position = m_Area.RandomInsideZone;
+                if (e.TryGetComponent<TDPatrolController>(out var ai))
+                {
+                    ai.SetPath(m_path);
+                }
             }
         }
     }
