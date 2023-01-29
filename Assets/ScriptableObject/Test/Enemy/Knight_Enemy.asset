@@ -10,6 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e613e4936b7eb47a13ac33105f89ea, type: 3}
-  m_Name: BlueEnemy
+  m_Name: Knight_Enemy
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0.77576256, b: 1, a: 1}
+  color: {r: 1, g: 1, b: 1, a: 1}
+  sprtiteScale: {x: 2, y: 2}
+  animations: {fileID: 9100000, guid: 74ed0bf4e8abec447aefe173916de648, type: 2}
+  moveSpeed: 2
+  hp: 1
+  score: 0
+  radius: 0.19

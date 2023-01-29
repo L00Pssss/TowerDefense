@@ -10,6 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e613e4936b7eb47a13ac33105f89ea, type: 3}
-  m_Name: RedEnemy
+  m_Name: Heavy_Knight_Enemy
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0, b: 0, a: 1}
+  color: {r: 1, g: 1, b: 1, a: 1}
+  sprtiteScale: {x: 4, y: 4}
+  animations: {fileID: 9100000, guid: 893384cc8f37e8e45bd647e01bd3c8ff, type: 2}
+  moveSpeed: 1
+  hp: 2
+  score: 1
+  radius: 0.38

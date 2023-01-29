@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Profiling;
 using UnityEngine;
@@ -131,127 +132,133 @@ namespace TowerDefense
         {
             return;
         }
+
+        public void Use(EnemyAsset asset)
+        {
+            m_MaxLinearVelocity = asset.moveSpeed;
+            base.Use(asset);
+        }
         /*
-        #region Offensive
+#region Offensive
 
-        private const int StartingAmmoCount = 10;
+private const int StartingAmmoCount = 10;
 
-        /// <summary>
-        /// Ссылки на турели корабля. Турели класть отдельными геймобъектами.
-        /// Каждая турель ест патроны и энергию.
-        /// </summary>
-        [SerializeField] private Turret[] m_Turrets;
+/// <summary>
+/// Ссылки на турели корабля. Турели класть отдельными геймобъектами.
+/// Каждая турель ест патроны и энергию.
+/// </summary>
+[SerializeField] private Turret[] m_Turrets;
 
-        /// <summary>
-        /// Максимум энергии на корабле.
-        /// </summary>
-        [SerializeField] private int m_MaxEnergy;
+/// <summary>
+/// Максимум энергии на корабле.
+/// </summary>
+[SerializeField] private int m_MaxEnergy;
 
-        /// <summary>
-        /// Максимум патронов на корабле.
-        /// </summary>
-        [SerializeField] private int m_MaxAmmo;
+/// <summary>
+/// Максимум патронов на корабле.
+/// </summary>
+[SerializeField] private int m_MaxAmmo;
 
-        /// <summary>
-        /// Скорость регенерации энергии в секунду.
-        /// </summary>
-        [SerializeField] private int m_EnergyRegenPerSecond;
+/// <summary>
+/// Скорость регенерации энергии в секунду.
+/// </summary>
+[SerializeField] private int m_EnergyRegenPerSecond;
 
-        /// <summary>
-        /// Кол-ыо энергии на корабле. float чтоб был смысл в свойстве реген в секунду.
-        /// </summary>
-        private float m_PrimaryEnergy;
+/// <summary>
+/// Кол-ыо энергии на корабле. float чтоб был смысл в свойстве реген в секунду.
+/// </summary>
+private float m_PrimaryEnergy;
 
-        public void AddEnergy(int e)
-        {
-            m_PrimaryEnergy = Mathf.Clamp(m_PrimaryEnergy + e, 0, m_MaxEnergy);
-        }
+public void AddEnergy(int e)
+{
+   m_PrimaryEnergy = Mathf.Clamp(m_PrimaryEnergy + e, 0, m_MaxEnergy);
+}
 
-        /// <summary>
-        /// Кол-во патронов.
-        /// </summary>
-        private int m_SecondaryAmmo;
+/// <summary>
+/// Кол-во патронов.
+/// </summary>
+private int m_SecondaryAmmo;
 
-        public void AddAmmo(int ammo)
-        {
-            m_SecondaryAmmo = Mathf.Clamp(m_SecondaryAmmo + ammo, 0, m_MaxAmmo);
-        }
+public void AddAmmo(int ammo)
+{
+   m_SecondaryAmmo = Mathf.Clamp(m_SecondaryAmmo + ammo, 0, m_MaxAmmo);
+}
 
-        /// <summary>
-        /// Инициализация начальный свойств корабля.
-        /// </summary>
-        private void InitOffensive()
-        {
-            m_PrimaryEnergy = m_MaxEnergy;
-            m_SecondaryAmmo = StartingAmmoCount;
-        }
+/// <summary>
+/// Инициализация начальный свойств корабля.
+/// </summary>
+private void InitOffensive()
+{
+   m_PrimaryEnergy = m_MaxEnergy;
+   m_SecondaryAmmo = StartingAmmoCount;
+}
 
-        /// <summary>
-        /// Обновляем статы корабля. Можно воткнуть например автопочинку.
-        /// </summary>
-        private void UpdateEnergyRegen()
-        {
-            m_PrimaryEnergy += (float)m_EnergyRegenPerSecond * Time.fixedDeltaTime;
-        }
+/// <summary>
+/// Обновляем статы корабля. Можно воткнуть например автопочинку.
+/// </summary>
+private void UpdateEnergyRegen()
+{
+   m_PrimaryEnergy += (float)m_EnergyRegenPerSecond * Time.fixedDeltaTime;
+}
 
-        /// <summary>
-        /// Метод вычитания патронов из боезапаса корабля. Используется турелями.
-        /// </summary>
-        /// <param name="count"></param>
-        /// <returns>true если патроны были скушаны</returns>
-        public bool DrawAmmo(int count)
-        {
-            if (count == 0)
-                return true;
+/// <summary>
+/// Метод вычитания патронов из боезапаса корабля. Используется турелями.
+/// </summary>
+/// <param name="count"></param>
+/// <returns>true если патроны были скушаны</returns>
+public bool DrawAmmo(int count)
+{
+   if (count == 0)
+       return true;
 
-            if (m_SecondaryAmmo >= count)
-            {
-                m_SecondaryAmmo -= count;
-                return true;
-            }
+   if (m_SecondaryAmmo >= count)
+   {
+       m_SecondaryAmmo -= count;
+       return true;
+   }
 
-            return false;
-        }
+   return false;
+}
 
-        /// <summary>
-        /// Метод вычитания патронов из боезапаса корабля. Используется турелями.
-        /// </summary>
-        /// <param name="count"></param>
-        /// <returns>true если патроны были скушаны</returns>
-        public bool DrawEnergy(int count)
-        {
-            if (count == 0)
-                return true;
+/// <summary>
+/// Метод вычитания патронов из боезапаса корабля. Используется турелями.
+/// </summary>
+/// <param name="count"></param>
+/// <returns>true если патроны были скушаны</returns>
+public bool DrawEnergy(int count)
+{
+   if (count == 0)
+       return true;
 
-            if (m_PrimaryEnergy >= count)
-            {
-                m_PrimaryEnergy -= count;
-                return true;
-            }
+   if (m_PrimaryEnergy >= count)
+   {
+       m_PrimaryEnergy -= count;
+       return true;
+   }
 
-            return false;
-        }
+   return false;
+}
 
-        /// <summary>
-        /// Стреляем первичкой или вторичкой.
-        /// </summary>
-        /// <param name="mode"></param>
-        public void Fire(TurretMode mode)
-        {
-            foreach (var v in m_Turrets)
-            {
-                if (v.Mode == mode)
-                    v.Fire();
-            }
-        }
+/// <summary>
+/// Стреляем первичкой или вторичкой.
+/// </summary>
+/// <param name="mode"></param>
+public void Fire(TurretMode mode)
+{
+   foreach (var v in m_Turrets)
+   {
+       if (v.Mode == mode)
+           v.Fire();
+   }
+}
 
-        #endregion
-        
-        public void AssignWeapon(TurretProperties props)
-        {
-            foreach (var v in m_Turrets)
-                v.AssignLoadout(props);
-        }
-        */
+#endregion
+
+public void AssignWeapon(TurretProperties props)
+{
+   foreach (var v in m_Turrets)
+       v.AssignLoadout(props);
+}
+*/
     }
 }
