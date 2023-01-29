@@ -4,19 +4,19 @@ namespace TowerDefense
 {
     public class StendUP : MonoBehaviour
     {
-        private Rigidbody2D rigidbody;
+        private Rigidbody2D m_rigidbody;
 
         private SpriteRenderer spriteRenderer;
 
         private void Start()
         {
-            rigidbody= transform.root.GetComponent<Rigidbody2D>();
+            m_rigidbody= transform.root.GetComponent<Rigidbody2D>();
             spriteRenderer= GetComponent<SpriteRenderer>();
         }
         private void LateUpdate()
         {
             transform.up = Vector2.up;
-            var xMotion = rigidbody.velocity.x;
+            var xMotion = m_rigidbody.velocity.x;
             if (xMotion > 0.01f)
             {
                 spriteRenderer.flipX = false;
