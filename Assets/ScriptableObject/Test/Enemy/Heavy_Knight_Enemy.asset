@@ -15,7 +15,10 @@ MonoBehaviour:
   color: {r: 1, g: 1, b: 1, a: 1}
   sprtiteScale: {x: 4, y: 4}
   animations: {fileID: 9100000, guid: 893384cc8f37e8e45bd647e01bd3c8ff, type: 2}
+  FlipY: 0
   moveSpeed: 1
   hp: 2
   score: 1
   radius: 0.38
+  offset: {x: 0, y: 0}
+  damage: 1

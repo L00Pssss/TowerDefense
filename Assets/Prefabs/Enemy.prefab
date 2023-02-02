@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 514515783494953548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 514515783951533659}
@@ -96,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 514515783494953548}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 74ed0bf4e8abec447aefe173916de648, type: 2}
+  m_Controller: {fileID: 9100000, guid: 801cf06adc85c704ba2d3a13067c90bd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -190,14 +190,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Nickname: 
   m_Indestructible: 0
-  m_HitPoints: 15
+  m_HitPoints: 1
   m_CurrentHitPoints: 0
   m_EventOnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2252140447293890958}
+        m_TargetAssemblyTypeName: TowerDefense.Enemy, Assembly-CSharp
+        m_MethodName: GivePlayerGold
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_ExplosionPrefab: {fileID: 0}
   m_TeamId: 0
-  m_ScoreValue: 0
+  m_ScoreValue: 1
   m_Mass: 1
   m_Thrust: 1000
   m_Mobility: 1000
@@ -223,6 +235,21 @@ MonoBehaviour:
   m_FindNewTargetTime: 0
   m_ShootDelay: 0
   m_EvadeRayLength: 0
+  OnEndPath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2252140447293890958}
+        m_TargetAssemblyTypeName: TowerDefense.Enemy, Assembly-CSharp
+        m_MethodName: DamagePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2252140447293890958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71351e7532fa4f74eaefff7d2253088c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_damage: 1
+  m_gold: 1
 --- !u!1 &3695373753980207422
 GameObject:
   m_ObjectHideFlags: 0

@@ -78,9 +78,9 @@ namespace TowerDefense
         /// <returns></returns>
         private void UpdateCurrentLevelStats()
         {
-            TotalStats.numKills += Player.Instance.NumKills;
-            TotalStats.time += LevelController.Instance.LevelTime;
-            TotalStats.score += Player.Instance.Score;
+            //TotalStats.numKills += Player.Instance.NumKills;
+            //TotalStats.time += LevelController.Instance.LevelTime;
+            //TotalStats.score += Player.Instance.Score;
 
             // бонус за время прохождения.
             int timeBonus = LevelController.Instance.ReferenceTime - (int)LevelController.Instance.LevelTime;
