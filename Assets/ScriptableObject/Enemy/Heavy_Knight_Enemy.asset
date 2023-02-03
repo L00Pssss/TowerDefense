@@ -22,3 +22,4 @@ MonoBehaviour:
   radius: 0.38
   offset: {x: 0, y: 0}
   damage: 1
+  gold: 25

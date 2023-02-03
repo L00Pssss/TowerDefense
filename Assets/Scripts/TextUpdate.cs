@@ -8,18 +8,16 @@ namespace TowerDefense
         public enum UpdateSource { Gold, Life }
         public UpdateSource source = UpdateSource.Gold;
         private TextMeshProUGUI m_text;
-        void Awake()
+        void Start()
         {
             m_text = GetComponent<TextMeshProUGUI>();
             switch (source)
             {
                 case UpdateSource.Gold:
-                    TDPlayer.OnGoldUpdate += UpdateText;
-                    Debug.Log(m_text );
+                    TDPlayer.GoldUpdateSubscribe(UpdateText);
                     break;
                 case UpdateSource.Life:
-                    TDPlayer.OnLifeUpdate += UpdateText;
-                    Debug.Log(m_text + " LIFE");
+                    TDPlayer.LifeUpdateSubscribe(UpdateText);
                     break;
             }
         }
