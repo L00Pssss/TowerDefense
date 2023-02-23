@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f680143d1aec64b4480907b213ad2c7f, type: 3}
   m_Name: ArcherTower
   m_EditorClassIdentifier: 
-  goldCost: 15
+  goldCost: 10
   sprite: {fileID: 21300000, guid: 0d1dc428e29b59d4da665429794be749, type: 3}
   towerGUI: {fileID: 21300000, guid: ef25b92a8e4b2644b8420de820e6c11f, type: 3}
+  AddAnimationHero: 0
+  PrefabAnimationHero: {fileID: 0}
+  turretProperties: {fileID: 11400000, guid: 8fa9940b683d16e48b2b83678469d5a8, type: 2}
+  Mode: 2
+  RadiusDetection: 4

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace TowerDefense
 {
@@ -11,6 +12,18 @@ namespace TowerDefense
         [SerializeField] private Enemy m_EntityPrefabs;
         [SerializeField] private Path m_path;
         [SerializeField] private EnemyAsset[] m_EnemyAsset;
+
+        public EnemyAsset[] EnemyNumber
+        {
+            get { return m_EnemyAsset; }
+            set { m_EnemyAsset = value; }
+        }
+
+        //public EnemyAsset this[int index]
+        //{
+        //    get { return m_EnemyAsset[index]; }
+        //    set { m_EnemyAsset[index] = value; }
+        //}
 
         protected override GameObject GenerateSpawnedEntity()
         {

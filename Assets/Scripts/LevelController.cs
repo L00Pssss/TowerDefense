@@ -37,7 +37,7 @@ namespace TowerDefense
         /// <summary>
         /// Событие которое будет вызвано когда уровень будет выполнен. Вызывается один раз.
         /// </summary>
-        [SerializeField] private UnityEvent m_EventLevelCompleted;
+        [SerializeField] protected UnityEvent m_EventLevelCompleted;
 
         /// <summary>
         /// Массив условий для успешного прохождения уровня.
@@ -51,7 +51,7 @@ namespace TowerDefense
 
         #region Unity events
 
-        private void Start()
+        protected void Start()
         {
             m_Conditions = GetComponentsInChildren<ILevelCondition>();
         }

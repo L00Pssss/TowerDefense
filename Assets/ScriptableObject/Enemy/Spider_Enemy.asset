@@ -17,8 +17,9 @@ MonoBehaviour:
   animations: {fileID: 9100000, guid: 801cf06adc85c704ba2d3a13067c90bd, type: 2}
   FlipY: 1
   moveSpeed: 2
-  hp: 1
+  hp: 10
   score: 1
   radius: 0.38
   offset: {x: 0, y: 0}
   damage: 1
+  gold: 6

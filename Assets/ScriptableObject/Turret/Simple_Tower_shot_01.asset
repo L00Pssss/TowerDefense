@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b6ae0277212ec148b8058f0e4d98c10, type: 3}
-  m_Name: Simple_Tower_shot
+  m_Name: Simple_Tower_shot_01
   m_EditorClassIdentifier: 
   m_Mode: 0
   m_ProjectilePrefab: {fileID: 1738185995951455723, guid: 3d46fbded026cbf41b1666a4e21e9074, type: 3}

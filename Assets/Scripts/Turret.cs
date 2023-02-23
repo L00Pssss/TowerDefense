@@ -6,7 +6,7 @@ namespace TowerDefense
     public class Turret : MonoBehaviour
     {
         [SerializeField] private TurretMode m_mode;
-        public TurretMode Mode => m_mode;
+        public TurretMode Mode { get; set; }
 
         [SerializeField] private TurretProperties m_TurretProperties;
 
@@ -54,7 +54,7 @@ namespace TowerDefense
 
                 if (!m_ship.DrawAmmo(m_TurretProperties.AmmoUsage) == false) { return; }
                 
-            }
+            }            
             Projectile projectile = Instantiate(m_TurretProperties.ProjectilePrefab).
                                     GetComponent<Projectile>();
             projectile.transform.position = transform.position;
@@ -77,6 +77,11 @@ namespace TowerDefense
 
             m_Refire_Timer = 0;
             m_TurretProperties = props;
+        }
+
+        public void SetTurretProprties(TurretProperties properties)
+        {
+            m_TurretProperties = properties;
         }
 
     }

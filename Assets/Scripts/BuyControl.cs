@@ -1,27 +1,38 @@
 using UnityEngine;
 
-public class BuyControl : MonoBehaviour
+namespace TowerDefense
 {
-    private RectTransform transform;
-    private void Awake()
+    public class BuyControl : MonoBehaviour
     {
-        transform = GetComponent<RectTransform>();
-        BuildSite.OnClickEvent += MoveToTransform;
-        gameObject.SetActive(false);
-    }
-
-    private void MoveToTransform(Transform target)
-    {
-        if (target)
+        [SerializeField] private RectTransform m_transform;
+        private void Awake()
         {
-            var positon = Camera.main.WorldToScreenPoint(target.position);
-            print(positon);
-            transform.anchoredPosition = positon;
-            gameObject.SetActive(true);
-        }
-        else
-        {
+            m_transform = GetComponent<RectTransform>();
+            BuildSite.OnClickEvent += MoveToBuildSite;
             gameObject.SetActive(false);
+        }
+
+        private void OnDestroy()
+        {
+            BuildSite.OnClickEvent -= MoveToBuildSite;
+        }
+
+        private void MoveToBuildSite(Transform buildSite)
+        {
+            if (buildSite)
+            {
+                var positon = Camera.main.WorldToScreenPoint(buildSite.position);
+                m_transform.anchoredPosition = positon;
+                gameObject.SetActive(true);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
+            foreach (var tbc in GetComponentsInChildren<TowerBuyControl>())
+            {
+                tbc.SetBuildStie(buildSite);
+            }
         }
     }
 }

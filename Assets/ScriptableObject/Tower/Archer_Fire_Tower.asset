@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f680143d1aec64b4480907b213ad2c7f, type: 3}
+  m_Name: Archer_Fire_Tower
+  m_EditorClassIdentifier: 
+  goldCost: 25
+  sprite: {fileID: 21300000, guid: 027fb586228a7fa4883b4785e870d724, type: 3}
+  towerGUI: {fileID: 21300000, guid: f4a407906e98b2a45885d0aec19cf892, type: 3}
+  AddAnimationHero: 0
+  PrefabAnimationHero: {fileID: 0}
+  turretProperties: {fileID: 11400000, guid: ea03137698b94ac44857cce85fd9cee9, type: 2}
+  Mode: 2
+  RadiusDetection: 4

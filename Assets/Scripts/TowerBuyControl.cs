@@ -6,7 +6,6 @@ namespace TowerDefense
 {
     public class TowerBuyControl : MonoBehaviour
     {
-
         [SerializeField] private TowerAsset m_TowerAsset;
 
         [SerializeField] private TextMeshProUGUI m_text;
@@ -15,7 +14,10 @@ namespace TowerDefense
 
         [SerializeField] private Transform buildSite;
 
-        public Transform BuildStie  { set { buildSite = value; } }
+        public void SetBuildStie(Transform value)
+        {
+            buildSite = value;
+        }
 
         private void Start()
         {
@@ -23,9 +25,14 @@ namespace TowerDefense
             m_text.text = m_TowerAsset.goldCost.ToString();
             m_button.GetComponent<Image>().sprite = m_TowerAsset.towerGUI;
         }
+
+        private void OnDestroy()
+        {
+            TDPlayer.Instance.GoldUpdateUnSubscribe(GoldSatatusCheck);
+        }
         private void GoldSatatusCheck(int gold)
         {
-            if (gold > m_TowerAsset.goldCost != m_button.interactable)
+            if (gold >= m_TowerAsset.goldCost != m_button.interactable)
             {
                 m_button.interactable = !m_button.interactable;
 
@@ -36,6 +43,7 @@ namespace TowerDefense
         public void Buy()
         {
             TDPlayer.Instance.TryBuild(m_TowerAsset, buildSite);
+            BuildSite.HideContorls();
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 
 namespace TowerDefense
 {
@@ -11,7 +8,7 @@ namespace TowerDefense
     /// </summary>
     public class LevelSequenceController : MonoSingleton<LevelSequenceController>
     {
-        public static string MainMenuSceneNickname = "scene_main_menu";
+        public static string MainMenuSceneNickname = "LevelMap";
 
         /// <summary>
         /// Текущий эпизод. Выставляется контроллером выбора эпизода перед началом игры.
@@ -44,7 +41,7 @@ namespace TowerDefense
         /// </summary>
         public void RestartLevel()
         {
-            SceneManager.LoadScene(CurrentEpisode.Levels[CurrentLevel]);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         /// <summary>

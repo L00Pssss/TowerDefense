@@ -1,17 +1,25 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace TowerDefense
 {
     public class Tower : MonoBehaviour
     {
         [SerializeField] private float m_Radius = 5f;
-        [SerializeField ]private Turret[] turrets;
+        [SerializeField] private Turret[] turrets;
+        [SerializeField] private AnimationReady m_AnimationReady;
+
+        public float RadiusDetection
+        {
+            get { return m_Radius; }
+            set { m_Radius = value; }
+        }
+
         private Destructible target = null;
 
         private void Start()
         {
             turrets = GetComponentsInChildren<Turret>();
+            m_AnimationReady = GetComponentInChildren<AnimationReady>();
         }
         private void Update()
         {
@@ -23,7 +31,11 @@ namespace TowerDefense
                     foreach (var turret in turrets)
                     {
                         turret.transform.up = targetVector;
-                        turret.Fire();
+                        if (turret.CanFire == true)
+                        {
+                            m_AnimationReady?.OnAnimation();
+                            turret.Fire();
+                        }
                     }
                 }
                 else { target = null; }

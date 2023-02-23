@@ -22,7 +22,7 @@ namespace TowerDefense
         /// <summary>
         /// Повреждения наносимые снарядом.
         /// </summary>
-        [SerializeField] private int m_Damage;
+        [SerializeField] private float m_Damage;
 
         /// <summary>
         /// Эффект попадания от что то твердое. 

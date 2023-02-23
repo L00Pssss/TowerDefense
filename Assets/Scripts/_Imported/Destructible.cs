@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,13 +20,13 @@ namespace TowerDefense
         /// <summary>
         /// Стартовое кол-во хитпоинтов.
         /// </summary>
-        [SerializeField] private int m_HitPoints;
+        [SerializeField] private float m_HitPoints;
         
         /// <summary>
         /// Текущие хит поинты
         /// </summary>
-        [SerializeField]private int m_CurrentHitPoints;
-        public int HitPoints => m_CurrentHitPoints;
+        [SerializeField]private float m_CurrentHitPoints;
+        public float HitPoints => m_CurrentHitPoints;
 
         #endregion
 
@@ -67,14 +66,14 @@ namespace TowerDefense
         /// Применение дамага к объекту.
         /// </summary>
         /// <param name="damage"></param>
-        public void ApplyDamage(int damage)
+        public void ApplyDamage(float damage)
         {
             if (m_Indestructible)
                 return;
 
             m_CurrentHitPoints -= damage;
 
-            if (m_CurrentHitPoints < 0)
+            if (m_CurrentHitPoints <= 0)
                 OnDeath();
         }
 

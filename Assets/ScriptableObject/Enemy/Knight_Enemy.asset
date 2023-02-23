@@ -18,7 +18,8 @@ MonoBehaviour:
   FlipY: 0
   moveSpeed: 2
   hp: 1
-  score: 0
+  score: 1
   radius: 0.19
   offset: {x: 0, y: 0}
   damage: 1
+  gold: 2
