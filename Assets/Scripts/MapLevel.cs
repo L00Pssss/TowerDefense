@@ -1,12 +1,13 @@
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 namespace TowerDefense
 {
     public class MapLevel : MonoBehaviour
     {
         private Episode m_episode;
-        [SerializeField] private TextMeshProUGUI m_text;
+        [SerializeField] private RectTransform m_resultPanel;
+        [SerializeField] private Image[] m_resultImages;
         public void LoadLevel()
         {
             if (m_episode)
@@ -18,7 +19,12 @@ namespace TowerDefense
         public void SetLevelData(Episode episode, int score)
         {
             m_episode = episode;
-            m_text.text = $"{score}/3";
+            m_resultPanel.gameObject.SetActive(score > 0);
+
+            for (int i = 0; i < score; i++)
+            {
+                m_resultImages[i].color = Color.white;
+            }
         }
 
     }

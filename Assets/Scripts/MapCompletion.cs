@@ -17,6 +17,7 @@ namespace TowerDefense
 
         public static void SaveEpisodeResult(int levelScore)
         {
+            if (Instance) // если есть сохаранение
             Instance.SaveResult(LevelSequenceController.Instance.CurrentEpisode, levelScore);
         }
         private void SaveResult(Episode currentEpisode, int levelScore)

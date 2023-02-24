@@ -1050,7 +1050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DoNotDestroyOnLoad: 0
-  m_ReferenceTime: 0
+  m_ReferenceTime: 5
   m_EventLevelCompleted:
     m_PersistentCalls:
       m_Calls: []
@@ -1066,7 +1066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecdc15bfb233ea04793148b9e9ad667b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_timeLimit: 70
+  m_timeLimit: 8
 --- !u!1001 &982383267
 PrefabInstance:
   m_ObjectHideFlags: 0
