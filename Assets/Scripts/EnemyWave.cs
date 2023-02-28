@@ -6,6 +6,8 @@ namespace TowerDefense
 {
     public class EnemyWave : MonoBehaviour
     {
+        public static Action<float> OnWavePrepare;
+
         [Serializable]
         private class Squad // волны. 
         {
@@ -21,6 +23,8 @@ namespace TowerDefense
         [SerializeField] private PathGroup[] groups; // должно синхр с Path[] m_paths; в менеджере через инспектор.
 
         [SerializeField] private float m_prepareTime = 10;
+
+        public float GetRemainingTime() { return m_prepareTime - Time.time; } 
 
         private void Awake()
         {
@@ -39,6 +43,7 @@ namespace TowerDefense
         private event Action OnWaveReady;
         public void Prepare(Action spwanEnemies)
         {
+            OnWavePrepare?.Invoke(m_prepareTime);
             m_prepareTime += Time.time;
             enabled = true;
             OnWaveReady += spwanEnemies;
