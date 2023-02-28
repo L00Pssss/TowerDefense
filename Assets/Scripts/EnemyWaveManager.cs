@@ -7,7 +7,7 @@ namespace TowerDefense
     {
         [SerializeField] private Enemy m_EntityPrefabs;
         [SerializeField] private Path[] m_paths;
-        [SerializeField] private EnemyWaves m_currentWave;
+        [SerializeField] private EnemyWave m_currentWave;
 
         private void Start()
         {
@@ -20,9 +20,9 @@ namespace TowerDefense
             {
                 if (pathIndex < m_paths.Length)
                 {
-                    for (int i = count; i < count; i++)
+                    for (int i = 0; i < count; i++)
                     {
-                        var enemy = Instantiate(m_EntityPrefabs);
+                        var enemy = Instantiate(m_EntityPrefabs, m_paths[pathIndex].StartArea.RandomInsideZone, Quaternion.identity);
                         enemy.Use(asset);
 
                         enemy.GetComponent<TDPatrolController>().SetPath(m_paths[pathIndex]);

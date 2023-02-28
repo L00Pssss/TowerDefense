@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -25, y: 0}
-  m_SizeDelta: {x: 8, y: 10}
+  m_AnchoredPosition: {x: -31.2, y: 1.4}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &1099466154
 CanvasRenderer:
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -652191768, guid: ad68eaf089e56774fbc72e043b78609b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e34196e61fe6e6c41a09bbf0f52bd4ab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -111,8 +111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.599998, y: -15.4}
-  m_SizeDelta: {x: 8, y: 10}
+  m_AnchoredPosition: {x: -17.2, y: -14.6}
+  m_SizeDelta: {x: 10, y: 9.4}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &1538254180
 CanvasRenderer:
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -652191768, guid: ad68eaf089e56774fbc72e043b78609b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e34196e61fe6e6c41a09bbf0f52bd4ab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -187,8 +187,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 8, y: 10}
+  m_AnchoredPosition: {x: 0, y: 1.4}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &1813407276
 CanvasRenderer:
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -652191768, guid: ad68eaf089e56774fbc72e043b78609b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e34196e61fe6e6c41a09bbf0f52bd4ab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -288,7 +288,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &4095868683115780196
 MonoBehaviour:
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1979443470006452473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,7 +666,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 96d93ef8db0138a42bc6260bc5b44587, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0deb46204b1170544888e83cf3999ee0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

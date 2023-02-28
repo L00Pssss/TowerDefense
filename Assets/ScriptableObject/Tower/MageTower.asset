@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f680143d1aec64b4480907b213ad2c7f, type: 3}
   m_Name: MageTower
   m_EditorClassIdentifier: 
-  goldCost: 50
+  goldCost: 45
   sprite: {fileID: 21300000, guid: 298636722737c4b41816506cd4bc994f, type: 3}
   towerGUI: {fileID: 21300000, guid: 1ff55c4a74fcf9b429b49b787ead3395, type: 3}
   AddAnimationHero: 1
   PrefabAnimationHero: {fileID: 9054799005178057436, guid: 7ea23b48619e46844b8fac4b6c2915d7, type: 3}
   turretProperties: {fileID: 11400000, guid: 789c19841c8c3bf4d923ec46154aee54, type: 2}
   Mode: 2
-  RadiusDetection: 2.4
+  RadiusDetection: 3
