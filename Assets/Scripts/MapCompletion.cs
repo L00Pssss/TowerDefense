@@ -18,7 +18,7 @@ namespace TowerDefense
         public static void SaveEpisodeResult(int levelScore)
         {
             if (Instance) // если есть сохаранение
-            Instance.SaveResult(LevelSequenceController.Instance.CurrentEpisode, levelScore);
+                Instance.SaveResult(LevelSequenceController.Instance.CurrentEpisode, levelScore);
         }
         private void SaveResult(Episode currentEpisode, int levelScore)
         {
@@ -37,11 +37,16 @@ namespace TowerDefense
         }
 
         [SerializeField] private EpisodeScore[] complitonData;
-
+        [SerializeField] private int totalScore;
+        public int TotalScore => totalScore;
         private new void Awake()
         {
             base.Awake();
             Saver<EpisodeScore[]>.TryLoad(filename, ref complitonData);
+            foreach (var episodeScore in complitonData)
+            {
+                totalScore += episodeScore.score;
+            }
         }
 
         public bool TryIndex(int id, out Episode episode, out int score)

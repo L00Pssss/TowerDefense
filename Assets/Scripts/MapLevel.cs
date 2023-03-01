@@ -8,6 +8,10 @@ namespace TowerDefense
         private Episode m_episode;
         [SerializeField] private RectTransform m_resultPanel;
         [SerializeField] private Image[] m_resultImages;
+
+        public bool IsComplete { get { return gameObject.activeSelf && 
+                    m_resultPanel.gameObject.activeSelf; } }
+
         public void LoadLevel()
         {
             if (m_episode)
