@@ -26,13 +26,13 @@ namespace TowerDefense {
             var bonus = (int)m_timeToNextWave;
             if (bonus < 0) bonus = 0;
 
-
-            m_BonusAmount.text = ((int)m_timeToNextWave).ToString();
-            
+            m_BonusAmount.text = bonus.ToString();           
             m_timeToNextWave -= Time.deltaTime;
-            
-            
-           
+
+            if (m_manager.CurrentWave == null)
+            {
+                m_timeToNextWave = 0;
+            }
         }
     }
 }

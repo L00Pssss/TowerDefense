@@ -13,6 +13,8 @@ namespace TowerDefense
 
         private int m_activeEnemyCount;
 
+        public EnemyWave CurrentWave => m_currentWave;
+
 
         private void Start()
         {
@@ -42,6 +44,7 @@ namespace TowerDefense
             else
             {
                 if (m_activeEnemyCount == 0)
+                    
                 OnAllWavesDead?.Invoke();
             }
         }
