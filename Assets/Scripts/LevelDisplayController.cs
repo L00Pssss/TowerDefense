@@ -10,11 +10,9 @@ namespace TowerDefense
         {
             var drawLevel = 0;
             var score = 1;
-            while (score != 0 &&
-                drawLevel < levels.Length &&
-                MapCompletion.Instance.TryIndex(drawLevel, out var episdoe, out  score))
+            while (score != 0 && drawLevel < levels.Length)
             {
-                levels[drawLevel].SetLevelData(episdoe, score);
+                levels[drawLevel].Initialise();
                 drawLevel += 1;
             }
 
@@ -23,8 +21,7 @@ namespace TowerDefense
                 levels[i].gameObject.SetActive(false);
             }
             for (int i = 0; i < m_branchLevls.Length; i++)
-            {
-                
+            {   
                 m_branchLevls[i].TryActuvate();
             }
         }

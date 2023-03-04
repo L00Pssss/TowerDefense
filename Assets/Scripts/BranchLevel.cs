@@ -14,7 +14,7 @@ namespace TowerDefense
 
         public void TryActuvate()
         {
-           gameObject.SetActive(m_rootLevel.IsComplete);
+            gameObject.SetActive(m_rootLevel.IsComplete);
             if (m_NeedPoints > MapCompletion.Instance.TotalScore)
             {
                 m_pointText.text = m_NeedPoints.ToString();
@@ -22,7 +22,8 @@ namespace TowerDefense
             else
             {
                 m_pointText.transform.parent.gameObject.SetActive(false);
-            }
+                GetComponent<MapLevel>().Initialise();
+            }         
         }
     }
 }

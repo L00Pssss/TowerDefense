@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 namespace TowerDefense
 {
@@ -37,7 +38,7 @@ namespace TowerDefense
         }
 
         [SerializeField] private EpisodeScore[] complitonData;
-        [SerializeField] private int totalScore;
+        private int totalScore;
         public int TotalScore => totalScore;
         private new void Awake()
         {
@@ -49,19 +50,14 @@ namespace TowerDefense
             }
         }
 
-        public bool TryIndex(int id, out Episode episode, out int score)
+        public int GetEpisodeScore(Episode m_episode)
         {
-            if (id >= 0 && id < complitonData.Length)
+            foreach (var data in complitonData)
             {
-                episode = complitonData[id].episode;
-                score = complitonData[id].score;
-                return true;
+               if (data.episode == m_episode)
+                    return data.score;
             }
-            episode = null;
-            score = 0;
-            return false;
+            return 0;
         }
- 
-   
     }
 }

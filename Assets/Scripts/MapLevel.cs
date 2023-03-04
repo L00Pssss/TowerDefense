@@ -1,11 +1,13 @@
+using System;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 namespace TowerDefense
 {
     public class MapLevel : MonoBehaviour
     {
-        private Episode m_episode;
+        [SerializeField]private Episode m_episode;
         [SerializeField] private RectTransform m_resultPanel;
         [SerializeField] private Image[] m_resultImages;
 
@@ -19,10 +21,10 @@ namespace TowerDefense
             else
                 Debug.Log("Ёпизод не назначен");
         }
-
-        public void SetLevelData(Episode episode, int score)
+        public void Initialise()
         {
-            m_episode = episode;
+            var score = MapCompletion.Instance.GetEpisodeScore(m_episode);
+
             m_resultPanel.gameObject.SetActive(score > 0);
 
             for (int i = 0; i < score; i++)
@@ -30,6 +32,5 @@ namespace TowerDefense
                 m_resultImages[i].color = Color.white;
             }
         }
-
     }
 } 
