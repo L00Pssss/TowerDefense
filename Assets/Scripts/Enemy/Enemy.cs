@@ -1,7 +1,8 @@
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System;
-using Unity.VisualScripting;
 
 namespace TowerDefense
 {
@@ -52,6 +53,10 @@ namespace TowerDefense
            TDPlayer.Instance.ChangeGold(m_gold);
         }
     }
+
+#if UNITY_EDITOR
+
+
     [CustomEditor(typeof(Enemy))]
     public class EnemyInspector : Editor
     {
@@ -68,4 +73,5 @@ namespace TowerDefense
             }
         }
     }
+#endif
 }
