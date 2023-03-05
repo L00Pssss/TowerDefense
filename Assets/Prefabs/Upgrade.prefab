@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.89900005}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000022888184, y: -0.02999878}
-  m_SizeDelta: {x: 0, y: 0.05000019}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7118547155115834552
 CanvasRenderer:
@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e2a6bc2f11622e40947a52d5a10d8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Asset: {fileID: 11400000, guid: 97ed07b198a39e34983b3cb8d4cccd68, type: 2}
   m_upgradeIcon: {fileID: 7118547157171994408}
   m_level: {fileID: 7118547155115834553}
   m_cost: {fileID: 7118547156093794569}
@@ -243,7 +244,7 @@ GameObject:
   - component: {fileID: 7118547155862863669}
   - component: {fileID: 7118547155862863670}
   m_Layer: 0
-  m_Name: Image (2)
+  m_Name: Start_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -319,7 +320,7 @@ GameObject:
   - component: {fileID: 7118547156093794568}
   - component: {fileID: 7118547156093794569}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,8 +343,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.63751125, y: 0.2432804}
   m_AnchorMax: {x: 0.85, y: 0.75671965}
-  m_AnchoredPosition: {x: 0.0000076293945, y: 0.06752014}
-  m_SizeDelta: {x: 0, y: 0.13499999}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7118547156093794568
 CanvasRenderer:
@@ -477,8 +478,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13748877, y: 0.2432804}
   m_AnchorMax: {x: 0.47500002, y: 0.75671965}
-  m_AnchoredPosition: {x: -0.000015258789, y: 0.06750488}
-  m_SizeDelta: {x: 0, y: 0.13503}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7118547156306010452
 CanvasRenderer:
@@ -700,7 +701,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7118547156429757834}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7118547155475761212}
+        m_TargetAssemblyTypeName: TowerDefense.BuyUpgrade_UI, Assembly-CSharp
+        m_MethodName: Buy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7118547157171994410
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,8 +749,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.26500002}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000038146973, y: -0.000015258789}
-  m_SizeDelta: {x: 0, y: 0.000022888}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7118547157171994407
 CanvasRenderer:
