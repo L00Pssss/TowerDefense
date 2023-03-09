@@ -14,6 +14,7 @@ namespace TowerDefense
         [Header("Game parameters")]
         public float moveSpeed = 1f;
         public int hp = 1;
+        public int armor = 0;
         public int score = 1;
         [Header("Collider")]
         public float radius = 0.19f;

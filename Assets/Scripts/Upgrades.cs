@@ -43,5 +43,18 @@ namespace TowerDefense
             }
             return 0;
         }
+
+        public static int GetTotalCost()
+        {
+            int result = 0;
+            foreach (var upgrade in Instance.m_save)
+            {
+                for (int i = 0; i < upgrade.level; i++)
+                {
+                    result += upgrade.asset.costByLevel[i];
+                }
+            }
+            return result;
+        }
     }
 }

@@ -7,10 +7,19 @@ using System;
 namespace TowerDefense
 {
     [RequireComponent(typeof(TDPatrolController))]
+    [RequireComponent(typeof(Destructible))]
     public class Enemy : MonoBehaviour
     {
         [SerializeField] private int m_damage = 1;
         [SerializeField] private int m_gold = 1;
+        [SerializeField] private int m_armor = 1;
+
+        private Destructible m_Destructible;
+
+        private void Awake()
+        {
+            m_Destructible= GetComponent<Destructible>();
+        }
 
         public event Action OnEnemyDestroy;
 
@@ -40,6 +49,7 @@ namespace TowerDefense
             }
 
             m_damage = asset.damage;
+            m_armor = asset.armor;
             m_gold = asset.gold;
         }
 
@@ -51,6 +61,11 @@ namespace TowerDefense
         public void GivePlayerGold ()
         {
            TDPlayer.Instance.ChangeGold(m_gold);
+        }
+
+        public void TakeDamage(float damage)
+        {
+            m_Destructible.ApplyDamage(Mathf.Max(1, damage - m_armor));
         }
     }
 

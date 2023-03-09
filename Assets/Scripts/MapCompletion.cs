@@ -29,6 +29,7 @@ namespace TowerDefense
                 {
                     if (levelScore > item.score)
                     {
+                        totalScore += levelScore - item.score;
                         item.score = levelScore;
                         Saver<EpisodeScore[]>.Save(filename, complitonData);
                     }

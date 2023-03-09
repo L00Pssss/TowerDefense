@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3d90658f7061a8439e3a41018c764c3, type: 3}
-  m_Name: HealthUpgrade
+  m_Name: GoldBonus
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: ae93735604fc8d04e8159ac66b724f1f, type: 3}
-  costByLevel: 0100000001000000010000000100000005000000
+  sprite: {fileID: 21300000, guid: 07207780b9527054a907263a264ac0d0, type: 3}
+  costByLevel: 0100000005000000050000000500000005000000

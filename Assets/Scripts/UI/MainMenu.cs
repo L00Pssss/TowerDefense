@@ -31,6 +31,7 @@ namespace TowerDefense
         public void StartNewGame()
         {
             FileHandler.Reset(MapCompletion.filename);
+            FileHandler.Reset(Upgrades.filename);
             SceneManager.LoadScene(1);
         }
 

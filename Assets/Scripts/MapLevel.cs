@@ -21,7 +21,7 @@ namespace TowerDefense
             else
                 Debug.Log("Ёпизод не назначен");
         }
-        public void Initialise()
+        public int Initialise()
         {
             var score = MapCompletion.Instance.GetEpisodeScore(m_episode);
 
@@ -31,6 +31,7 @@ namespace TowerDefense
             {
                 m_resultImages[i].color = Color.white;
             }
+            return score;
         }
     }
 } 

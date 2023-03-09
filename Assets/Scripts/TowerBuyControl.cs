@@ -29,6 +29,7 @@ namespace TowerDefense
         private void OnDestroy()
         {
             TDPlayer.Instance.GoldUpdateUnSubscribe(GoldSatatusCheck);
+           // TDPlayer.Instance.LifeUpdateUnSubscribe(Gol
         }
         private void GoldSatatusCheck(int gold)
         {

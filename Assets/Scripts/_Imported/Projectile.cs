@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 namespace TowerDefense
@@ -9,6 +12,21 @@ namespace TowerDefense
     /// </summary>
     public class Projectile : Entity
     {
+        public void SetFromOtherProjectile(Projectile other)
+        {
+            other.GetData(out m_Velocity,out m_Lifetime, out m_Damage, out m_ImpactEffectPrefab);
+
+        }
+
+        private void GetData(out float m_Velocity, out float m_Lifetime, out float m_Damage, out ImpactEffect m_ImpactEffectPrefab)
+        {
+            m_Velocity = this.m_Velocity;
+            m_Lifetime = this.m_Lifetime;
+            m_Damage = this.m_Damage;
+            m_ImpactEffectPrefab = this.m_ImpactEffectPrefab;
+
+        }
+
         /// <summary>
         /// Линейная скорость полета снаряда.
         /// </summary>
@@ -22,7 +40,7 @@ namespace TowerDefense
         /// <summary>
         /// Повреждения наносимые снарядом.
         /// </summary>
-        [SerializeField] private float m_Damage;
+        [SerializeField] protected float m_Damage;
 
         /// <summary>
         /// Эффект попадания от что то твердое. 
@@ -36,22 +54,36 @@ namespace TowerDefense
             float stepLength = Time.deltaTime * m_Velocity;
             Vector2 step = transform.up * stepLength;
 
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up,stepLength);
-            
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, stepLength);
+
             // не забыть выключить в свойствах проекта, вкладка Physics2D иначе не заработает
             // disable queries hit triggers
             // disable queries start in collider
+            OnHit(hit);
+
+            m_Timer += Time.deltaTime;
+
+            if (m_Timer > m_Lifetime)
+                Destroy(gameObject);
+
+            transform.position += new Vector3(step.x, step.y, 0);
+        }
+
+
+
+        protected virtual void OnHit(RaycastHit2D hit)
+        {
             if (hit)
             {
                 var destructible = hit.collider.transform.root.GetComponent<Destructible>();
 
-                if(destructible != null && destructible != m_Parent)
+                if (destructible != null && destructible != m_Parent)
                 {
                     destructible.ApplyDamage(m_Damage);
 
                     // #Score
                     // добавляем очки за уничтожение
-                    if(TDPlayer.Instance != null && destructible.HitPoints < 0)
+                    if (TDPlayer.Instance != null && destructible.HitPoints < 0)
                     {
                         // проверяем что прожектайл принадлежит кораблю игрока. 
                         // здесь есть нюанс - если мы выстрелим прожектайл и после умрем
@@ -66,18 +98,12 @@ namespace TowerDefense
 
                 OnProjectileLifeEnd(hit.collider, hit.point);
             }
-
-            m_Timer += Time.deltaTime;
-
-            if(m_Timer > m_Lifetime)
-                Destroy(gameObject);
-
-            transform.position += new Vector3(step.x, step.y, 0);
         }
+
 
         private void OnProjectileLifeEnd(Collider2D collider, Vector2 pos)
         {
-            if(m_ImpactEffectPrefab != null)
+            if (m_ImpactEffectPrefab != null)
             {
                 var impact = Instantiate(m_ImpactEffectPrefab.gameObject);
                 impact.transform.position = pos;
@@ -93,11 +119,23 @@ namespace TowerDefense
         {
             m_Parent = parent;
         }
-
-        //public void SetTarget(Destructible target)
-        //{
-
-        //}
+    }
+    [CustomEditor(typeof(Projectile), true)]
+    public class ProjectileInspector : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            if (GUILayout.Button("Create TD Projectile"))
+            {
+                var target = this.target as Projectile;
+                var tdProjectile = target.AddComponent<TDProjectile>();
+                tdProjectile.SetFromOtherProjectile(target);
+               // DestroyImmediate(tdProjectile); // неоходимо создать метод условие для возможности удаления.
+            }
+        }
     }
 }
+
+
 

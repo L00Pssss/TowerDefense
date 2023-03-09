@@ -26,7 +26,11 @@ namespace TowerDefense
         public void GoldUpdateUnSubscribe(Action<int> act)
         {
             OnGoldUpdate -= act;
-        }
+        } 
+        //public void LifeUpdateUnSubscribe(Action<int> act)
+        //{
+        //    OnLifeUpdate -= act;
+        //}
         public void ChangeGold(int change)
         {
             m_gold += change;
@@ -35,15 +39,21 @@ namespace TowerDefense
 
 
 
-        public void TakeDamage(int m_damage)
+        public void TakeDamage(int damage)
         {
-            m_NumLives -= m_damage;
-            OnLifeUpdate(m_NumLives);
+            m_NumLives -= damage;
+            
             if (m_NumLives <= 0)
             {
                 m_NumLives = 0;
                 OnPlayerDead?.Invoke();
             }
+            OnLifeUpdate(m_NumLives);
+        }
+
+        public void ChangeNumLivesWithUpgrade(int bounsLives)
+        {
+            m_NumLives += bounsLives;
         }
 
 
@@ -68,6 +78,16 @@ namespace TowerDefense
                 pref.transform.parent = tower.transform.GetChild(0);
             }
             Destroy(buildSite.gameObject);
+        }
+
+        [SerializeField] private UpgradeAsset_UI[] m_Upgrade;
+        private new void Awake()
+        {
+            base.Awake();
+            var level = Upgrades.GetUpgradeLevel(m_Upgrade[0]);
+            var gold = Upgrades.GetUpgradeLevel(m_Upgrade[1]);
+            ChangeNumLivesWithUpgrade(level * 5);
+            ChangeGold((int)((float)gold * 1.5f));
         }
     }
 }

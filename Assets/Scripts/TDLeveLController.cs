@@ -7,6 +7,7 @@ namespace TowerDefense
     public class TDLeveLController : LevelController
     {
         private int levelScore = 3;
+
         private new void Start()
         {
             base.Start();
@@ -16,7 +17,7 @@ namespace TowerDefense
                 LevelResultController.Instance.Show(false);
             };
 
-            
+
             m_ReferenceTime += Time.time;
 
             m_EventLevelCompleted.AddListener(() =>
@@ -36,8 +37,10 @@ namespace TowerDefense
             {
                 levelScore -= 1;
                 TDPlayer.OnLifeUpdate -= LifeSocreChange;
-            }       
+            }
         }
+
+
 
         private void StopLevelActivity()
         {
