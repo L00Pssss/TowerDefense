@@ -8,15 +8,11 @@ namespace TowerDefense
         [SerializeField] private DamageType m_damageType;
         protected override void OnHit(RaycastHit2D hit)
         {
-            
-            if (hit)
-            {
-                var enemy = hit.collider.transform.root.GetComponent<Enemy>();
+            var enemy = hit.collider.transform.root.GetComponent<Enemy>();
 
-                if (enemy != null)
-                {
-                    enemy.TakeDamage(m_Damage);
-                }
+            if (enemy != null)
+            {
+                enemy.TakeDamage(m_Damage, m_damageType);
             }
         }
     }

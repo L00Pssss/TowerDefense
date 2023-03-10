@@ -134,3 +134,4 @@ MonoBehaviour:
   m_Lifetime: 1
   m_Damage: 8
   m_ImpactEffectPrefab: {fileID: 0}
+  m_damageType: 1

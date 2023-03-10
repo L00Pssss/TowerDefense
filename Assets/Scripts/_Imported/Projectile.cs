@@ -18,7 +18,7 @@ namespace TowerDefense
 
         }
 
-        private void GetData(out float m_Velocity, out float m_Lifetime, out float m_Damage, out ImpactEffect m_ImpactEffectPrefab)
+        private void GetData(out float m_Velocity, out float m_Lifetime, out int m_Damage, out ImpactEffect m_ImpactEffectPrefab)
         {
             m_Velocity = this.m_Velocity;
             m_Lifetime = this.m_Lifetime;
@@ -40,7 +40,7 @@ namespace TowerDefense
         /// <summary>
         /// Повреждения наносимые снарядом.
         /// </summary>
-        [SerializeField] protected float m_Damage;
+        [SerializeField] protected int m_Damage;
 
         /// <summary>
         /// Эффект попадания от что то твердое. 
@@ -59,7 +59,12 @@ namespace TowerDefense
             // не забыть выключить в свойствах проекта, вкладка Physics2D иначе не заработает
             // disable queries hit triggers
             // disable queries start in collider
-            OnHit(hit);
+            if (hit)
+            {
+                OnHit(hit);
+
+                OnProjectileLifeEnd(hit.collider, hit.point);
+            }
 
             m_Timer += Time.deltaTime;
 
@@ -73,8 +78,6 @@ namespace TowerDefense
 
         protected virtual void OnHit(RaycastHit2D hit)
         {
-            if (hit)
-            {
                 var destructible = hit.collider.transform.root.GetComponent<Destructible>();
 
                 if (destructible != null && destructible != m_Parent)
@@ -95,9 +98,6 @@ namespace TowerDefense
                         //}
                     }
                 }
-
-                OnProjectileLifeEnd(hit.collider, hit.point);
-            }
         }
 
 

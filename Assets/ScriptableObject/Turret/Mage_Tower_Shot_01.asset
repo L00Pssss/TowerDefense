@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mage_Tower_Shot_01
   m_EditorClassIdentifier: 
   m_Mode: 0
-  m_ProjectilePrefab: {fileID: 5366644744021654022, guid: a44c2af340443a74cb9cb08d4b20337f, type: 3}
+  m_ProjectilePrefab: {fileID: -8067062963496120565, guid: a44c2af340443a74cb9cb08d4b20337f, type: 3}
   m_RateOfFire: 1
   m_EnergyUsage: 0
   m_AmmoUsage: 0

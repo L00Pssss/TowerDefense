@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Simple_Tower_shot_01
   m_EditorClassIdentifier: 
   m_Mode: 0
-  m_ProjectilePrefab: {fileID: 1738185995951455723, guid: 3d46fbded026cbf41b1666a4e21e9074, type: 3}
+  m_ProjectilePrefab: {fileID: -6063817655671230439, guid: 3d46fbded026cbf41b1666a4e21e9074, type: 3}
   m_RateOfFire: 0.5
   m_EnergyUsage: 0
   m_AmmoUsage: 0
