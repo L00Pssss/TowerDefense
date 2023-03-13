@@ -179,11 +179,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DoNotDestroyOnLoad: 0
   m_gold: 20
-  m_NumLives: 10
+  m_numLives: 10
   m_towerPrefab: {fileID: 4539602031028818055, guid: c4f31e37bbff1d042b04d1644e22ddb9, type: 3}
-  m_Upgrade:
-  - {fileID: 11400000, guid: 97ed07b198a39e34983b3cb8d4cccd68, type: 2}
-  - {fileID: 11400000, guid: 8c1966719a86347438d188e22d097e96, type: 2}
+  m_upgrade: []
 --- !u!114 &4933763289728773660
 MonoBehaviour:
   m_ObjectHideFlags: 0

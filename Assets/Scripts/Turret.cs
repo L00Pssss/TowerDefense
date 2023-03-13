@@ -1,20 +1,18 @@
-﻿using System.Diagnostics.Tracing;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TowerDefense
 {
     public class Turret : MonoBehaviour
     {
         [SerializeField] private TurretMode m_mode;
-        public TurretMode Mode { get; set; }
 
         [SerializeField] private TurretProperties m_TurretProperties;
 
-        private float m_Refire_Timer;
-
+        public TurretMode Mode { get; set; }
         public bool CanFire => m_Refire_Timer <= 0;
 
         private SpaceShip m_ship;
+        private float m_Refire_Timer;
 
         private void Start()
         {

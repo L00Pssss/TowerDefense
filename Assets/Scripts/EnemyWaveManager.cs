@@ -5,35 +5,19 @@ namespace TowerDefense
 {
     public class EnemyWaveManager : MonoBehaviour
     {
-        [SerializeField] private Enemy m_EntityPrefabs;
+        [SerializeField] private Enemy m_enemyPrefabs;
         [SerializeField] private Path[] m_paths;
         [SerializeField] private EnemyWave m_currentWave;
 
         public event Action OnAllWavesDead;
-
-        private int m_activeEnemyCount;
-
         public EnemyWave CurrentWave => m_currentWave;
 
+        private int m_activeEnemyCount;
 
         private void Start()
         {
             m_currentWave.Prepare(SpwanEnemies);
         }
-
-
-        private void RecordEnemyDead() 
-        {
-            if (--m_activeEnemyCount == 0) // сначала удаляет, потом проверяет. 
-            {
-                ForceNextWave();
-
-            }
-
-        }
-
-
-  
         public void ForceNextWave()
         {
             if (m_currentWave)
@@ -48,6 +32,16 @@ namespace TowerDefense
                 OnAllWavesDead?.Invoke();
             }
         }
+
+        private void RecordEnemyDead()
+        {
+            if (--m_activeEnemyCount == 0) // сначала удаляет, потом проверяет. 
+            {
+                ForceNextWave();
+
+            }
+
+        }
         private void SpwanEnemies()
         {
             foreach ((EnemyAsset asset, int count, int pathIndex) in m_currentWave.EnumerateSquads())
@@ -56,7 +50,7 @@ namespace TowerDefense
                 {
                     for (int i = 0; i < count; i++)
                     {
-                        var enemy = Instantiate(m_EntityPrefabs, m_paths[pathIndex].StartArea.RandomInsideZone, Quaternion.identity);
+                        var enemy = Instantiate(m_enemyPrefabs, m_paths[pathIndex].StartArea.RandomInsideZone, Quaternion.identity);
                         enemy.OnEnemyDestroy += RecordEnemyDead;
                         enemy.Use(asset);
                         enemy.GetComponent<TDPatrolController>().SetPath(m_paths[pathIndex]);
@@ -71,7 +65,5 @@ namespace TowerDefense
             // create enemy
             m_currentWave = m_currentWave.PrepareNext(SpwanEnemies);
         }
-
-
     }
 }

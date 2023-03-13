@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TowerDefense
 {
@@ -18,12 +17,6 @@ namespace TowerDefense
             get { return m_EnemyAsset; }
             set { m_EnemyAsset = value; }
         }
-
-        //public EnemyAsset this[int index]
-        //{
-        //    get { return m_EnemyAsset[index]; }
-        //    set { m_EnemyAsset[index] = value; }
-        //}
 
         protected override GameObject GenerateSpawnedEntity()
         {

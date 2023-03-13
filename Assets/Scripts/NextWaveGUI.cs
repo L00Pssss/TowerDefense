@@ -4,10 +4,10 @@ using TMPro;
 namespace TowerDefense {
     public class NextWaveGUI : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI m_BonusAmount;
+        [SerializeField] private TextMeshProUGUI m_bonusAmount;
         private EnemyWaveManager m_manager;
         private float m_timeToNextWave;
-        void Start()
+        private void Start()
         {
             m_manager = FindObjectOfType<EnemyWaveManager>();
             EnemyWave.OnWavePrepare += (float time) =>
@@ -15,18 +15,12 @@ namespace TowerDefense {
                 m_timeToNextWave = time;
             };
         }
-
-        public void CallWave()
-        {
-            m_manager.ForceNextWave();
-        }
-
         private void Update()
         {
             var bonus = (int)m_timeToNextWave;
             if (bonus < 0) bonus = 0;
 
-            m_BonusAmount.text = bonus.ToString();           
+            m_bonusAmount.text = bonus.ToString();
             m_timeToNextWave -= Time.deltaTime;
 
             if (m_manager.CurrentWave == null)
@@ -34,5 +28,10 @@ namespace TowerDefense {
                 m_timeToNextWave = 0;
             }
         }
+
+        public void CallWave()
+        {
+            m_manager.ForceNextWave();
+        }   
     }
 }

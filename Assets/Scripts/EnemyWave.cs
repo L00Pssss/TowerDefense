@@ -5,9 +5,7 @@ using UnityEngine;
 namespace TowerDefense
 {
     public class EnemyWave : MonoBehaviour
-    {
-        public static Action<float> OnWavePrepare;
-
+    { 
         [Serializable]
         private class Squad // волны. 
         {
@@ -20,17 +18,17 @@ namespace TowerDefense
             public Squad[] squads;
         }
 
-        [SerializeField] private PathGroup[] groups; // должно синхр с Path[] m_paths; в менеджере через инспектор.
-
+        public static Action<float> OnWavePrepare;
+        private event Action OnWaveReady;
+        [SerializeField] private PathGroup[] m_groups; // должно синхр с Path[] m_paths; в менеджере через инспектор.
         [SerializeField] private float m_prepareTime = 10;
-
+        [SerializeField] private EnemyWave m_next;
         public float GetRemainingTime() { return m_prepareTime - Time.time; } 
 
         private void Awake()
         {
             enabled = false;
         }
-
         private void Update()
         {
             if (Time.time > m_prepareTime)
@@ -38,9 +36,7 @@ namespace TowerDefense
                 enabled = false;
                 OnWaveReady?.Invoke();
             }
-        }
-
-        private event Action OnWaveReady;
+        } 
         public void Prepare(Action spwanEnemies)
         {
             OnWavePrepare?.Invoke(m_prepareTime);
@@ -50,15 +46,14 @@ namespace TowerDefense
         }
         public IEnumerable<(EnemyAsset asset, int count, int pathIndex)> EnumerateSquads()
         {
-            for (int i = 0; i < groups.Length; i++)
+            for (int i = 0; i < m_groups.Length; i++)
             {
-                foreach (var squad in groups[i].squads)
+                foreach (var squad in m_groups[i].squads)
                 {
                     yield return (squad.asset, squad.count, i);
                 }
             }
-        }
-        [SerializeField] private EnemyWave m_next;
+        }    
         public EnemyWave PrepareNext(Action spwanEnemies)
         {
             OnWaveReady -= spwanEnemies;

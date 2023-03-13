@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace TowerDefense
@@ -39,9 +37,6 @@ namespace TowerDefense
                 TDPlayer.OnLifeUpdate -= LifeSocreChange;
             }
         }
-
-
-
         private void StopLevelActivity()
         {
             foreach (var enemy in FindObjectsOfType<Enemy>())

@@ -152,12 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14008bfa262779647b8224be3b54e31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groups:
-  - squads:
-    - asset: {fileID: 11400000, guid: d743936c393e7af4f884a5d3bdf68ff9, type: 2}
-      count: 2
-    - asset: {fileID: 11400000, guid: f377dc0001f478346bdb788ef5f3ecc0, type: 2}
-      count: 1
+  m_groups: []
   m_prepareTime: 8
   m_next: {fileID: 804081773}
 --- !u!4 &55877603
@@ -264,13 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd50f23f29617a4f84d7ed56ecc440b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startArea: {fileID: 1441328202}
-  points:
-  - {fileID: 2010721609}
-  - {fileID: 349644408}
-  - {fileID: 1495783968}
-  - {fileID: 2100054074}
-  - {fileID: 0}
+  m_startArea: {fileID: 0}
+  m_points: []
 --- !u!1 &409062363
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,12 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14008bfa262779647b8224be3b54e31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groups:
-  - squads:
-    - asset: {fileID: 11400000, guid: 0995e82cb5c3cad4e8763b8269f0f99e, type: 2}
-      count: 5
-    - asset: {fileID: 11400000, guid: d743936c393e7af4f884a5d3bdf68ff9, type: 2}
-      count: 1
+  m_groups: []
   m_prepareTime: 8
   m_next: {fileID: 1055111703}
 --- !u!4 &795161055
@@ -672,10 +657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14008bfa262779647b8224be3b54e31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groups:
-  - squads:
-    - asset: {fileID: 11400000, guid: f377dc0001f478346bdb788ef5f3ecc0, type: 2}
-      count: 2
+  m_groups: []
   m_prepareTime: 8
   m_next: {fileID: 1227667264}
 --- !u!4 &804081774
@@ -751,12 +733,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
-  m_Sprite: {fileID: 21300000, guid: 3595a333bafecb34e94ff8b1f8c6d140, type: 3}
+  m_Sprite: {fileID: -20223604, guid: 3595a333bafecb34e94ff8b1f8c6d140, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7, y: 6}
+  m_Size: {x: 7, y: 3.94}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1035,7 +1017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802771e7be799ce4eb4dec273fa56818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EntityPrefabs: {fileID: 2252140447293890958, guid: 851cb5572f665604c8bc72d185be7973, type: 3}
+  m_enemyPrefabs: {fileID: 0}
   m_paths:
   - {fileID: 2118426828}
   - {fileID: 367054493}
@@ -1069,10 +1051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14008bfa262779647b8224be3b54e31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groups:
-  - squads:
-    - asset: {fileID: 11400000, guid: d743936c393e7af4f884a5d3bdf68ff9, type: 2}
-      count: 2
+  m_groups: []
   m_prepareTime: 8
   m_next: {fileID: 55877602}
 --- !u!4 &1055111704
@@ -1225,12 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14008bfa262779647b8224be3b54e31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groups:
-  - squads:
-    - asset: {fileID: 11400000, guid: 1be88c0539eeb4d4da177420464c8495, type: 2}
-      count: 1
-    - asset: {fileID: 11400000, guid: 698ce490956424246b64f995fd84e06c, type: 2}
-      count: 2
+  m_groups: []
   m_prepareTime: 8
   m_next: {fileID: 0}
 --- !u!4 &1227667265
@@ -1563,10 +1537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14008bfa262779647b8224be3b54e31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groups:
-  - squads:
-    - asset: {fileID: 11400000, guid: 698ce490956424246b64f995fd84e06c, type: 2}
-      count: 3
+  m_groups: []
   m_prepareTime: 0
   m_next: {fileID: 2027921387}
 --- !u!1 &1495783966
@@ -2093,12 +2064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14008bfa262779647b8224be3b54e31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groups:
-  - squads:
-    - asset: {fileID: 11400000, guid: 698ce490956424246b64f995fd84e06c, type: 2}
-      count: 4
-    - asset: {fileID: 11400000, guid: 0995e82cb5c3cad4e8763b8269f0f99e, type: 2}
-      count: 2
+  m_groups: []
   m_prepareTime: 5
   m_next: {fileID: 795161054}
 --- !u!4 &2027921388
@@ -2319,18 +2285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd50f23f29617a4f84d7ed56ecc440b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startArea: {fileID: 1466974888}
-  points:
-  - {fileID: 2010721609}
-  - {fileID: 596088624}
-  - {fileID: 1707852409}
-  - {fileID: 901356349}
-  - {fileID: 1254410696}
-  - {fileID: 2077735870}
-  - {fileID: 541986191}
-  - {fileID: 860461419}
-  - {fileID: 1889023824}
-  - {fileID: 0}
+  m_startArea: {fileID: 0}
+  m_points: []
 --- !u!1001 &2240346532863930780
 PrefabInstance:
   m_ObjectHideFlags: 0

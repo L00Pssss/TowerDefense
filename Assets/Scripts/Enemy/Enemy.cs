@@ -10,33 +10,12 @@ namespace TowerDefense
     [RequireComponent(typeof(Destructible))]
     public class Enemy : MonoBehaviour
     {
-        public enum ArmorType { Base = 0, Mage = 1 }
-        private static Func<int, TDProjectile.DamageType, int, int>[] ArmorDamageFunctions =
-        {
-            (int power, TDProjectile.DamageType type, int armor) => 
-            { // ArmomrType.Base
-                switch (type)
-                {
-                    case TDProjectile.DamageType.Magic: return power;
-                    default: return Mathf.Max(power- armor, 1);
-                }
-            },
-            (int power, TDProjectile.DamageType type, int armor) =>
-            { // ArmomrType.Base
-                    if(TDProjectile.DamageType.Base == type)
-                    armor = armor / 2;
-                    return Mathf.Max(power - armor, 1 );
-
-            },
-
-        };
-
-
         [SerializeField] private int m_damage = 1;
         [SerializeField] private int m_gold = 1;
         [SerializeField] private int m_armor = 1;
         [SerializeField] private ArmorType m_armorType;
 
+        public event Action OnEnemyDestroy;
 
         private Destructible m_Destructible;
 
@@ -45,11 +24,9 @@ namespace TowerDefense
             m_Destructible= GetComponent<Destructible>();
         }
 
-        public event Action OnEnemyDestroy;
-
         private void OnDestroy()
         {
-            print(name);  OnEnemyDestroy?.Invoke();
+           OnEnemyDestroy?.Invoke();
         }
 
         public void Use(EnemyAsset asset)
@@ -92,6 +69,28 @@ namespace TowerDefense
         {
             m_Destructible.ApplyDamage(ArmorDamageFunctions[(int)m_armorType](damage,damageType,m_armor));
         }
+
+        public enum ArmorType { Base = 0, Mage = 1 }
+
+        private static Func<int, TDProjectile.DamageType, int, int>[] ArmorDamageFunctions =
+        {
+            (int power, TDProjectile.DamageType type, int armor) =>
+            { // ArmomrType.Base
+                switch (type)
+                {
+                    case TDProjectile.DamageType.Magic: return power;
+                    default: return Mathf.Max(power- armor, 1);
+                }
+            },
+            (int power, TDProjectile.DamageType type, int armor) =>
+            { // ArmomrType.Base
+                    if(TDProjectile.DamageType.Base == type)
+                    armor = armor / 2;
+                    return Mathf.Max(power - armor, 1 );
+
+            },
+
+        };
     }
 
 #if UNITY_EDITOR

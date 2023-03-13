@@ -9,8 +9,42 @@ namespace TowerDefense
         /// <summary>
         /// Зона спавна.
         /// </summary>
-        [SerializeField] private CircleArea m_Area;
+        [SerializeField] private CircleArea m_area;
 
+        [SerializeField] private SpawnMode m_spawnMode;
+
+        /// <summary>
+        /// Кол-во объектов которые будут разом заспавнены.
+        /// </summary>
+        [SerializeField] private int m_numSpawns;
+
+        /// <summary>
+        /// Время респавна. Здесь важно заметить что респавн таймер должен быть больше времени жизни объектов.
+        /// </summary>
+        [SerializeField] private float m_respawnTime;
+
+        private float m_Timer;
+
+
+        private void Start()
+        {
+            if (m_spawnMode == SpawnMode.Start)
+            {
+                SpawnEntities();
+            }
+        }
+
+        private void Update()
+        {
+            if (m_Timer > 0)
+                m_Timer -= Time.deltaTime;
+
+            if (m_spawnMode == SpawnMode.Loop && m_Timer <= 0)
+            {
+                SpawnEntities();
+                m_Timer = m_respawnTime;
+            }
+        }
         /// <summary>
         /// Режим спавна.
         /// </summary>
@@ -26,47 +60,12 @@ namespace TowerDefense
             /// </summary>
             Loop
         }
-
-        [SerializeField] private SpawnMode m_SpawnMode;
-
-        /// <summary>
-        /// Кол-во объектов которые будут разом заспавнены.
-        /// </summary>
-        [SerializeField] private int m_NumSpawns;
-
-        /// <summary>
-        /// Время респавна. Здесь важно заметить что респавн таймер должен быть больше времени жизни объектов.
-        /// </summary>
-        [SerializeField] private float m_RespawnTime;
-
-        private float m_Timer;
-
-        private void Start()
-        {
-            if(m_SpawnMode == SpawnMode.Start)
-            {
-                SpawnEntities();
-            }
-        }
-
-        private void Update()
-        {
-            if (m_Timer > 0)
-                m_Timer -= Time.deltaTime;
-
-            if(m_SpawnMode == SpawnMode.Loop && m_Timer <= 0)
-            {
-                SpawnEntities();
-                m_Timer = m_RespawnTime;
-            }
-        }
-
         private void SpawnEntities()
         {
-            for(int i = 0; i < m_NumSpawns; i++)
+            for(int i = 0; i < m_numSpawns; i++)
             {
                 var e = GenerateSpawnedEntity();
-                e.transform.position = m_Area.RandomInsideZone;
+                e.transform.position = m_area.RandomInsideZone;
             }
         }
     }

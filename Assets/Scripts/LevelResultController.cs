@@ -11,8 +11,8 @@ namespace TowerDefense
     public class LevelResultController : MonoSingleton<LevelResultController>
     { 
 
-        [SerializeField] private GameObject m_PanelSuccess;
-        [SerializeField] private GameObject m_PanelFailure;
+        [SerializeField] private GameObject m_panelSuccess;
+        [SerializeField] private GameObject m_panelFailure;
 
         [SerializeField] private Text m_LevelTime;
         [SerializeField] private Text m_TotalPlayTime;
@@ -31,8 +31,8 @@ namespace TowerDefense
             //    UpdateVisualStats();
             //}
 
-            m_PanelSuccess?.gameObject.SetActive(result);
-            m_PanelFailure?.gameObject.SetActive(!result);
+            m_panelSuccess?.gameObject.SetActive(result);
+            m_panelFailure?.gameObject.SetActive(!result);
         }
 
         /// <summary>

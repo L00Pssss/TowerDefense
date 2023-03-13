@@ -8,21 +8,21 @@ namespace TowerDefense
         [SerializeField] private UnityEvent OnEndPath;
 
         private Path m_path;
-        private int PathIndex;
+        private int m_PathIndex;
         
 
         public void SetPath(Path newPath)
         {
             m_path = newPath;
-            PathIndex = 0;
-            SetPatrolBehaviour(m_path[PathIndex]);
+            m_PathIndex = 0;
+            SetPatrolBehaviour(m_path[m_PathIndex]);
         }
 
         protected override void GetNewPoint()
         {
-            if (m_path.Length > ++PathIndex)
+            if (m_path.Length > ++m_PathIndex)
             {
-                SetPatrolBehaviour(m_path[PathIndex]);
+                SetPatrolBehaviour(m_path[m_PathIndex]);
             }
             else
             {

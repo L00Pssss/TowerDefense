@@ -6,7 +6,6 @@ namespace TowerDefense
 {
     public class UpgradeShop_UI : MonoBehaviour
     {
-
         [SerializeField] private int m_money;
         [SerializeField] private TextMeshProUGUI m_moneyText;
         [SerializeField] private BuyUpgrade_UI[] m_sales;
@@ -21,7 +20,6 @@ namespace TowerDefense
 
             UpdateMoney();
         }
-
         public void UpdateMoney()
         {
             m_money = MapCompletion.Instance.TotalScore;
@@ -32,11 +30,6 @@ namespace TowerDefense
             {
                 slot.CheckCost(m_money);
             }
-        }
-
-        public void AddGold()
-        {
-
         }
     }
 }

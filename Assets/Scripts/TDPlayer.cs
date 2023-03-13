@@ -6,10 +6,13 @@ namespace TowerDefense
     public class TDPlayer : MonoSingleton<TDPlayer>
     {
         [SerializeField] private int m_gold = 0;
-        [SerializeField] private int m_NumLives;
+        [SerializeField] private int m_numLives;
+
+        [SerializeField] private Tower m_towerPrefab;
+        [SerializeField] private UpgradeAsset_UI[] m_upgrade;
 
         private static event Action<int> OnGoldUpdate;
-        public event Action OnPlayerDead;
+        
         public static void GoldUpdateSubscribe(Action<int> act)
         {
             OnGoldUpdate += act;
@@ -20,17 +23,13 @@ namespace TowerDefense
         public static void LifeUpdateSubscribe(Action<int> act)
         {
             OnLifeUpdate += act;
-            act(Instance.m_NumLives);
+            act(Instance.m_numLives);
         }
 
         public void GoldUpdateUnSubscribe(Action<int> act)
         {
             OnGoldUpdate -= act;
         } 
-        //public void LifeUpdateUnSubscribe(Action<int> act)
-        //{
-        //    OnLifeUpdate -= act;
-        //}
         public void ChangeGold(int change)
         {
             m_gold += change;
@@ -38,27 +37,26 @@ namespace TowerDefense
         }
 
 
-
+        public event Action OnPlayerDead;
         public void TakeDamage(int damage)
         {
-            m_NumLives -= damage;
+            m_numLives -= damage;
             
-            if (m_NumLives <= 0)
+            if (m_numLives <= 0)
             {
-                m_NumLives = 0;
+                m_numLives = 0;
                 OnPlayerDead?.Invoke();
             }
-            OnLifeUpdate(m_NumLives);
+            OnLifeUpdate(m_numLives);
         }
 
         public void ChangeNumLivesWithUpgrade(int bounsLives)
         {
-            m_NumLives += bounsLives;
+            m_numLives += bounsLives;
         }
 
 
-        // верим в то, что золота на постройку достаточно. 
-        [SerializeField] private Tower m_towerPrefab;
+
         public void TryBuild(TowerAsset m_TowerAsset, Transform buildSite)
         {
             ChangeGold(-m_TowerAsset.goldCost);
@@ -80,14 +78,17 @@ namespace TowerDefense
             Destroy(buildSite.gameObject);
         }
 
-        [SerializeField] private UpgradeAsset_UI[] m_Upgrade;
+        
         private new void Awake()
         {
             base.Awake();
-            var level = Upgrades.GetUpgradeLevel(m_Upgrade[0]);
-            var gold = Upgrades.GetUpgradeLevel(m_Upgrade[1]);
-            ChangeNumLivesWithUpgrade(level * 5);
-            ChangeGold((int)((float)gold * 1.5f));
+            if (m_upgrade.Length != 0)
+            {
+                var level = Upgrades.GetUpgradeLevel(m_upgrade[0]);
+                var gold = Upgrades.GetUpgradeLevel(m_upgrade[1]);
+                ChangeNumLivesWithUpgrade(level * 5);
+                ChangeGold((int)((float)gold * 1.5f));
+            }
         }
     }
 }

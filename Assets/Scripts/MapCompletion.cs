@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 namespace TowerDefense
 {
@@ -14,46 +13,45 @@ namespace TowerDefense
             public Episode episode;
             public int score;
         }
+        private new void Awake()
+        {
+            base.Awake();
+            Saver<EpisodeScore[]>.TryLoad(filename, ref m_complitonData);
+            foreach (var episodeScore in m_complitonData)
+            {
+                TotalScore += episodeScore.score;
+            }
+        }
 
+        public int TotalScore { private set; get; }
+
+        [SerializeField] private EpisodeScore[] m_complitonData;
 
         public static void SaveEpisodeResult(int levelScore)
         {
             if (Instance) // если есть сохаранение
-                Instance.SaveResult(LevelSequenceController.Instance.CurrentEpisode, levelScore);
-        }
-        private void SaveResult(Episode currentEpisode, int levelScore)
-        {
-            foreach (var item in complitonData)
             {
-                if (item.episode == currentEpisode)
+                foreach (var item in Instance.m_complitonData)
                 {
-                    if (levelScore > item.score)
+                    if (item.episode == LevelSequenceController.Instance.CurrentEpisode)
                     {
-                        totalScore += levelScore - item.score;
-                        item.score = levelScore;
-                        Saver<EpisodeScore[]>.Save(filename, complitonData);
+                        if (levelScore > item.score)
+                        {
+                            Instance.TotalScore += levelScore - item.score;
+                            item.score = levelScore;
+                            Saver<EpisodeScore[]>.Save(filename, Instance.m_complitonData);
+                        }
                     }
                 }
-
             }
-        }
-
-        [SerializeField] private EpisodeScore[] complitonData;
-        private int totalScore;
-        public int TotalScore => totalScore;
-        private new void Awake()
-        {
-            base.Awake();
-            Saver<EpisodeScore[]>.TryLoad(filename, ref complitonData);
-            foreach (var episodeScore in complitonData)
+            else
             {
-                totalScore += episodeScore.score;
+                Debug.Log($"Episode complete with score {levelScore}");
             }
         }
-
         public int GetEpisodeScore(Episode m_episode)
         {
-            foreach (var data in complitonData)
+            foreach (var data in m_complitonData)
             {
                if (data.episode == m_episode)
                     return data.score;

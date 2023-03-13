@@ -4,8 +4,8 @@ namespace TowerDefense
 {
     public class TDProjectile : Projectile
     {
-        public enum DamageType { Base, Magic }
         [SerializeField] private DamageType m_damageType;
+        public enum DamageType { Base, Magic }      
         protected override void OnHit(RaycastHit2D hit)
         {
             var enemy = hit.collider.transform.root.GetComponent<Enemy>();

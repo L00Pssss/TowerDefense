@@ -19,6 +19,7 @@ MonoBehaviour:
   moveSpeed: 2
   hp: 5
   armor: 5
+  arrmorType: 1
   score: 1
   radius: 0.19
   offset: {x: 0, y: 0}

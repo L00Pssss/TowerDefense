@@ -24,10 +24,10 @@ namespace TowerDefense
             }
         }
 
-        
+
         public static void Save(string filename, T data)
         {
-            var wrapper = new Saver<T> { data = data };      
+            var wrapper = new Saver<T> { data = data };
             var dataString = JsonUtility.ToJson(wrapper);
             File.WriteAllText(FileHandler.Path(filename), dataString);
         }
@@ -54,7 +54,7 @@ namespace TowerDefense
             }
         }
 
-        internal static bool HasFile(string filename)
+        public static bool HasFile(string filename)
         {
             return File.Exists(Path(filename));
         }

@@ -18,8 +18,8 @@ MonoBehaviour:
   FlipY: 0
   moveSpeed: 2
   hp: 5
-  armor: 0
-  arrmorType: 1
+  armor: 2
+  arrmorType: 0
   score: 1
   radius: 0.19
   offset: {x: 0, y: 0}

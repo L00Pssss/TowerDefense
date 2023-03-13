@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using TMPro;
 
@@ -9,15 +8,14 @@ namespace TowerDefense
     {
         [SerializeField] private MapLevel m_rootLevel;
         [SerializeField] private TextMeshProUGUI m_pointText;
-
-        [SerializeField] private int m_NeedPoints = 3;
+        [SerializeField] private int m_needPoints = 3;
 
         public void TryActuvate()
         {
             gameObject.SetActive(m_rootLevel.IsComplete);
-            if (m_NeedPoints > MapCompletion.Instance.TotalScore)
+            if (m_needPoints > MapCompletion.Instance.TotalScore)
             {
-                m_pointText.text = m_NeedPoints.ToString();
+                m_pointText.text = m_needPoints.ToString();
             }
             else
             {

@@ -1,13 +1,11 @@
-using System;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 namespace TowerDefense
 {
     public class MapLevel : MonoBehaviour
     {
-        [SerializeField]private Episode m_episode;
+        [SerializeField] private Episode m_episode;
         [SerializeField] private RectTransform m_resultPanel;
         [SerializeField] private Image[] m_resultImages;
 

@@ -13,14 +13,7 @@ namespace TowerDefense
             get { return m_Radius; }
             set { m_Radius = value; }
         }
-
         private Destructible target = null;
-
-        private void Start()
-        {
-            turrets = GetComponentsInChildren<Turret>();
-            m_AnimationReady = GetComponentInChildren<AnimationReady>();
-        }
         private void Update()
         {
             if (target)
@@ -39,7 +32,7 @@ namespace TowerDefense
                     }
                 }
                 else { target = null; }
-            } 
+            }
             else
             {
                 var enter = Physics2D.OverlapCircle(transform.position, m_Radius);
@@ -49,6 +42,12 @@ namespace TowerDefense
                 }
             }
         }
+        private void Start()
+        {
+            turrets = GetComponentsInChildren<Turret>();
+            m_AnimationReady = GetComponentInChildren<AnimationReady>();
+        }
+        
 
         private void OnDrawGizmosSelected()
         {

@@ -3,7 +3,7 @@ guid: fb77c1da067a7d642a41fb197d4e46ef
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,7 +63,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -8369,17 +8368,18 @@ TextureImporter:
       pixel effect_273: -603240561
       pixel effect_339: -1542503671
       pixel effect_258: 1913434448
+      pixel effect_330: -1606347286
       pixel effect_31: -773888212
-      pixel effect_66: -864127371
       pixel effect_126: 507714256
+      pixel effect_66: -864127371
       pixel effect_34: 1853415321
-      pixel effect_219: 1348102409
       pixel effect_143: 1850976807
       pixel effect_177: -768279278
+      pixel effect_219: 1348102409
       pixel effect_241: -1485124192
-      pixel effect_318: 1357998238
       pixel effect_287: 1036640182
       pixel effect_67: -846316723
+      pixel effect_318: 1357998238
       pixel effect_182: -1458090316
       pixel effect_259: 367454600
       pixel effect_342: 2137287741
@@ -8387,13 +8387,12 @@ TextureImporter:
       pixel effect_168: -355540503
       pixel effect_243: 831454253
       pixel effect_16: 999232117
+      pixel effect_239: -155566897
       pixel effect_109: -524757592
       pixel effect_132: -700506189
-      pixel effect_330: -1606347286
       pixel effect_200: -467280861
       pixel effect_272: -117978304
       pixel effect_317: -1483673146
-      pixel effect_239: -155566897
       pixel effect_18: -68325633
       pixel effect_246: 1061451281
       pixel effect_227: -58277723
@@ -8433,8 +8432,8 @@ TextureImporter:
       pixel effect_210: -1642933145
       pixel effect_199: -1336007843
       pixel effect_221: 680117148
-      pixel effect_286: -630799030
       pixel effect_302: -1042454046
+      pixel effect_286: -630799030
       pixel effect_334: -137523922
       pixel effect_353: -215462568
       pixel effect_42: 212480907
@@ -8486,9 +8485,9 @@ TextureImporter:
       pixel effect_349: 744725556
       pixel effect_40: 759149761
       pixel effect_172: 959688207
-      pixel effect_191: 1030507180
-      pixel effect_202: 993202295
       pixel effect_266: 1092928869
+      pixel effect_202: 993202295
+      pixel effect_191: 1030507180
       pixel effect_58: -664172467
       pixel effect_25: 304466851
       pixel effect_0: -832086180
@@ -8504,10 +8503,10 @@ TextureImporter:
       pixel effect_293: 1031818204
       pixel effect_208: 1893073995
       pixel effect_84: -1665608386
-      pixel effect_310: -142799055
-      pixel effect_340: -1832891830
-      pixel effect_236: -696828285
       pixel effect_372: 1171158741
+      pixel effect_310: -142799055
+      pixel effect_236: -696828285
+      pixel effect_340: -1832891830
       pixel effect_391: -728191531
       pixel effect_85: -1819079405
       pixel effect_112: 1585608667
@@ -8599,11 +8598,11 @@ TextureImporter:
       pixel effect_355: 1283390614
       pixel effect_122: -1470535804
       pixel effect_23: 1263284721
-      pixel effect_289: 2112356816
       pixel effect_156: -1754700643
+      pixel effect_289: 2112356816
+      pixel effect_197: -357412464
       pixel effect_14: 809818675
       pixel effect_362: 1557346952
-      pixel effect_197: -357412464
       pixel effect_356: -779858088
       pixel effect_378: 1921114580
       pixel effect_198: 1428893481
@@ -8631,13 +8630,13 @@ TextureImporter:
       pixel effect_307: 312860789
       pixel effect_46: 1275341349
       pixel effect_114: 1548769560
-      pixel effect_128: 808454782
-      pixel effect_223: -1097486950
-      pixel effect_97: -1367249955
-      pixel effect_235: 1189238070
-      pixel effect_267: -2071003860
       pixel effect_178: 1267676329
+      pixel effect_128: 808454782
+      pixel effect_97: -1367249955
+      pixel effect_267: -2071003860
       pixel effect_240: -467251968
+      pixel effect_235: 1189238070
+      pixel effect_223: -1097486950
       pixel effect_28: 1632331519
       pixel effect_387: 1131061686
       pixel effect_7: 2016317064

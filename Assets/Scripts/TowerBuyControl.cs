@@ -14,11 +14,6 @@ namespace TowerDefense
 
         [SerializeField] private Transform buildSite;
 
-        public void SetBuildStie(Transform value)
-        {
-            buildSite = value;
-        }
-
         private void Start()
         {
             TDPlayer.GoldUpdateSubscribe(GoldSatatusCheck);
@@ -26,11 +21,15 @@ namespace TowerDefense
             m_button.GetComponent<Image>().sprite = m_TowerAsset.towerGUI;
         }
 
-        private void OnDestroy()
+        public void SetBuildStie(Transform value)
         {
-            TDPlayer.Instance.GoldUpdateUnSubscribe(GoldSatatusCheck);
-           // TDPlayer.Instance.LifeUpdateUnSubscribe(Gol
+            buildSite = value;
         }
+        public void SetTowerAsset(TowerAsset asset)
+        {
+            m_TowerAsset = asset;
+        }
+       
         private void GoldSatatusCheck(int gold)
         {
             if (gold >= m_TowerAsset.goldCost != m_button.interactable)
@@ -40,11 +39,18 @@ namespace TowerDefense
                 m_text.color = m_button.interactable ? Color.white : Color.red; //
             }
         }
+        private void OnDestroy()
+        {
+            TDPlayer.Instance.GoldUpdateUnSubscribe(GoldSatatusCheck);
+            // TDPlayer.Instance.LifeUpdateUnSubscribe(Gol
+        }
         // Достаточное колическтво денег - предусловие этой процедуры
         public void Buy()
         {
             TDPlayer.Instance.TryBuild(m_TowerAsset, buildSite);
             BuildSite.HideContorls();
         }
+
+
     }
 }

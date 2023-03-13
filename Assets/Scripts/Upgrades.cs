@@ -34,6 +34,7 @@ namespace TowerDefense
 
         public static int GetUpgradeLevel(UpgradeAsset_UI asset)
         {
+            int result = 0;
             foreach (var upgrade in Instance.m_save)
             {
                 if (upgrade.asset == asset)
@@ -41,7 +42,7 @@ namespace TowerDefense
                     return upgrade.level;
                 }
             }
-            return 0;
+            return result;
         }
 
         public static int GetTotalCost()
