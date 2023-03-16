@@ -1,13 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEditor.U2D.Path.GUIFramework;
 
 namespace TowerDefense
 {
     public class BuyControl : MonoBehaviour
     {
         [SerializeField] private TowerBuyControl m_TowerByPrefab;
-
+        [SerializeField] private TowerAsset[] m_TowerAssets;
+        [SerializeField] private UpgradeAsset_UI m_MageTowerUpgrade;
         private List<TowerBuyControl> m_ActiveControl;
         private RectTransform m_rectTransform;
         private void Awake()
@@ -21,50 +21,35 @@ namespace TowerDefense
         {
             BuildSite.OnClickEvent -= MoveToBuildSite;
         }
-        private void MoveToBuildSite(BuildSite buildSite)
+        private void MoveToBuildSite(Transform buildSite)
         {
             if (buildSite)
             {
-                var positon = Camera.main.WorldToScreenPoint(buildSite.transform.root.position); // root поскольку buildSite дочерный объект. 
+                var positon = Camera.main.WorldToScreenPoint(buildSite.position);
                 m_rectTransform.anchoredPosition = positon;
                 gameObject.SetActive(true);
                 m_ActiveControl = new List<TowerBuyControl>();
-                foreach (var asset in buildSite.buildableTowers)
+                for (int i = 0; i < m_TowerAssets.Length; i++)
                 {
-                    if (asset.IsAvailable()) // значение в тавер асетах (условие)
+                    if (i != 1 || Upgrades.GetUpgradeLevel(m_MageTowerUpgrade) > 0)
                     {
                         var newContorl = (Instantiate(m_TowerByPrefab, transform));
                         m_ActiveControl.Add(newContorl);
-                        newContorl.SetTowerAsset(asset);
-                    }
-                }
-                if (m_ActiveControl.Count > 0)
-                {
-                    var angel = 360 / m_ActiveControl.Count;
-                    for (int i = 0; i < m_ActiveControl.Count; i++)
-                    {
-                        var offset = Quaternion.AngleAxis(angel * i, Vector3.forward) * (Vector3.up * 80);
-                        m_ActiveControl[i].transform.position += offset;
+                        newContorl.transform.position += Vector3.left * 100 * i;
+                        newContorl.SetTowerAsset(m_TowerAssets[i]);
                     }
                 }
 
-                foreach (var tbc in GetComponentsInChildren<TowerBuyControl>())
-                {
-                    tbc.SetBuildStie(buildSite.transform.root);
-                }
             }
             else
             {
-                if (m_ActiveControl != null)
-                {
-                    foreach (var control in m_ActiveControl) Destroy(control.gameObject);
-                    m_ActiveControl.Clear();
-                }
-                
+                foreach(var control in m_ActiveControl) Destroy(control.gameObject);
                 gameObject.SetActive(false);
             }
-
+            foreach (var tbc in GetComponentsInChildren<TowerBuyControl>())
+            {
+                tbc.SetBuildStie(buildSite);
+            }
         }
     }
-
 }

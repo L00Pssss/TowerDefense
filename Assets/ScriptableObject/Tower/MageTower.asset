@@ -20,7 +20,3 @@ MonoBehaviour:
   turretProperties: {fileID: 11400000, guid: 789c19841c8c3bf4d923ec46154aee54, type: 2}
   Mode: 2
   RadiusDetection: 3
-  requiredUpgrade: {fileID: 11400000, guid: 3fb62743bcc03cf4fb8eddc7e5bd8c56, type: 2}
-  requiredUpgradeLevel: 1
-  m_UpgradesTo:
-  - {fileID: 11400000, guid: 247b6cc19eb6e6344b5473e6c76734bc, type: 2}

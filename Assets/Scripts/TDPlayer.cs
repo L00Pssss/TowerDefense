@@ -61,10 +61,21 @@ namespace TowerDefense
         {
             ChangeGold(-m_TowerAsset.goldCost);
             var tower = Instantiate(m_towerPrefab, buildSite.position, Quaternion.identity);
-            tower.Use(m_TowerAsset);
-            print(buildSite.gameObject.name);
-            Destroy(buildSite.gameObject);
 
+            tower.GetComponentInChildren<SpriteRenderer>().sprite = m_TowerAsset.sprite;
+
+            tower.GetComponentInChildren<Turret>().Mode = m_TowerAsset.Mode;
+
+            tower.GetComponentInChildren<Turret>().SetTurretProprties(m_TowerAsset.turretProperties);
+
+            tower.GetComponent<Tower>().RadiusDetection = m_TowerAsset.RadiusDetection;
+
+            if (m_TowerAsset.AddAnimationHero == true)
+            {
+                var pref = Instantiate(m_TowerAsset.PrefabAnimationHero, tower.GetComponent<Transform>().position, Quaternion.identity);
+                pref.transform.parent = tower.transform.GetChild(0);
+            }
+            Destroy(buildSite.gameObject);
         }
 
         

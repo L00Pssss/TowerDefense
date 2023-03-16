@@ -20,12 +20,10 @@ namespace TowerDefense
             foreach (var episodeScore in m_complitonData)
             {
                 TotalScore += episodeScore.score;
-                TotalMana  += episodeScore.score;
             }
         }
 
         public int TotalScore { private set; get; }
-        public int TotalMana { private set; get; }
 
         [SerializeField] private EpisodeScore[] m_complitonData;
 
@@ -40,7 +38,6 @@ namespace TowerDefense
                         if (levelScore > item.score)
                         {
                             Instance.TotalScore += levelScore - item.score;
-                            Instance.TotalMana += levelScore - item.score;
                             item.score = levelScore;
                             Saver<EpisodeScore[]>.Save(filename, Instance.m_complitonData);
                         }
