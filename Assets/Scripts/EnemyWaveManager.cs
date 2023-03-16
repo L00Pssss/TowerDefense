@@ -9,6 +9,7 @@ namespace TowerDefense
         [SerializeField] private Path[] m_paths;
         [SerializeField] private EnemyWave m_currentWave;
 
+        public static event Action<Enemy> OnEnemySwpan;
         public event Action OnAllWavesDead;
         public EnemyWave CurrentWave => m_currentWave;
 
@@ -55,6 +56,7 @@ namespace TowerDefense
                         enemy.Use(asset);
                         enemy.GetComponent<TDPatrolController>().SetPath(m_paths[pathIndex]);
                         m_activeEnemyCount += 1;
+                        OnEnemySwpan?.Invoke(enemy);
                     }
                 }
                 else

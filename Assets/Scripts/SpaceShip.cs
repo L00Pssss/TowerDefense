@@ -34,6 +34,18 @@ namespace TowerDefense
         /// </summary>
         [SerializeField] private float m_MaxLinearVelocity;
 
+        private float m_MaxVelocityBackup;
+        public void HalfMaxLinearVelocity() 
+        {
+            m_MaxVelocityBackup = m_MaxLinearVelocity;
+            m_MaxLinearVelocity /= 2;
+        }
+
+        public void RestoreMaxLinerVelocity()
+        {
+            m_MaxLinearVelocity = m_MaxVelocityBackup;
+        }
+
         /// <summary>
         /// Максимальная вращательная скорость. В градусах/сек
         /// </summary>

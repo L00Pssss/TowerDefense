@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f680143d1aec64b4480907b213ad2c7f, type: 3}
-  m_Name: MageTower
+  m_Name: MageTower_2
   m_EditorClassIdentifier: 
-  goldCost: 45
-  sprite: {fileID: 21300000, guid: 298636722737c4b41816506cd4bc994f, type: 3}
+  goldCost: 70
+  sprite: {fileID: 21300000, guid: 961542bf834d173448be6e9b235a3b66, type: 3}
   towerGUI: {fileID: 21300000, guid: 1ff55c4a74fcf9b429b49b787ead3395, type: 3}
   AddAnimationHero: 1
   PrefabAnimationHero: {fileID: 9054799005178057436, guid: 7ea23b48619e46844b8fac4b6c2915d7, type: 3}
-  turretProperties: {fileID: 11400000, guid: 789c19841c8c3bf4d923ec46154aee54, type: 2}
+  turretProperties: {fileID: 11400000, guid: c38a206f8dc9c4d42b8201c88b469b0c, type: 2}
   Mode: 2
   RadiusDetection: 3
   requiredUpgrade: {fileID: 11400000, guid: 3fb62743bcc03cf4fb8eddc7e5bd8c56, type: 2}
-  requiredUpgradeLevel: 1
-  m_UpgradesTo:
-  - {fileID: 11400000, guid: 247b6cc19eb6e6344b5473e6c76734bc, type: 2}
+  requiredUpgradeLevel: 0
+  m_UpgradesTo: []
