@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: GoldBonus
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 07207780b9527054a907263a264ac0d0, type: 3}
-  costByLevel: 0100000005000000050000000500000005000000
+  costByLevelGold: 03000000
+  costByManaMana: 00000000

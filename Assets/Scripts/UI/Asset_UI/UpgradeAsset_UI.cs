@@ -8,6 +8,7 @@ namespace TowerDefense
         [Header("Visual Icon")]
         public Sprite sprite;
 
-        public int[] costByLevel = { 3 };
+        public int[] costByLevelGold = { 3 };
+        public int[] costByManaMana = { 3 };
     }
 }

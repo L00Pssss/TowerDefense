@@ -52,7 +52,7 @@ namespace TowerDefense
             {
                 for (int i = 0; i < upgrade.level; i++)
                 {
-                    result += upgrade.asset.costByLevel[i];
+                    result += upgrade.asset.costByLevelGold[i];
                 }
             }
             return result;
