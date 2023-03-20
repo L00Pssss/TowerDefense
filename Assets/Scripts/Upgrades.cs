@@ -3,8 +3,13 @@ using UnityEngine;
 
 namespace TowerDefense
 {
+    public enum TypeBuy
+    { 
+        Gold, Magic 
+    }
     public class Upgrades : MonoSingleton<Upgrades>
     {
+
         public const string filename = "upgrades.dat";
 
         [Serializable]
@@ -12,6 +17,7 @@ namespace TowerDefense
         {
             public UpgradeAsset_UI asset;
             public int level = 0;
+            public TypeBuy m_typeBuy;
         }
         [SerializeField] private UpgradeSave[] m_save;
 
@@ -45,14 +51,25 @@ namespace TowerDefense
             return result;
         }
 
-        public static int GetTotalCost()
+        public static int GetTotalCost(TypeBuy typeBuy)
         {
             int result = 0;
             foreach (var upgrade in Instance.m_save)
             {
-                for (int i = 0; i < upgrade.level; i++)
+                if (TypeBuy.Gold == typeBuy)
                 {
-                    result += upgrade.asset.costByLevel[i];
+                    for (int i = 0; i < upgrade.level && i < upgrade.asset.costByLevelGold.Length; i++)
+                    {
+                        result += upgrade.asset.costByLevelGold[i];
+                    }
+                }
+
+                if (TypeBuy.Magic == typeBuy)
+                {
+                    for (int i = 0; i < upgrade.level && i < upgrade.asset.costByLevelMana.Length; i++)
+                    {
+                        result += upgrade.asset.costByLevelMana[i];
+                    }
                 }
             }
             return result;

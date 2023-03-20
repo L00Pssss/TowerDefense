@@ -178,10 +178,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DoNotDestroyOnLoad: 0
-  m_gold: 20
+  m_gold: 100
   m_numLives: 10
   m_towerPrefab: {fileID: 4539602031028818055, guid: c4f31e37bbff1d042b04d1644e22ddb9, type: 3}
-  m_upgrade: []
+  m_upgrade:
+  - {fileID: 11400000, guid: 97ed07b198a39e34983b3cb8d4cccd68, type: 2}
+  - {fileID: 11400000, guid: 8c1966719a86347438d188e22d097e96, type: 2}
+  - {fileID: 11400000, guid: 3fb62743bcc03cf4fb8eddc7e5bd8c56, type: 2}
+  - {fileID: 11400000, guid: e4f4b92a410b184499af51af1d7c1b65, type: 2}
+  - {fileID: 11400000, guid: 8763aa9b6bed489489cb085ccd905007, type: 2}
 --- !u!114 &4933763289728773660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DoNotDestroyOnLoad: 0
-  m_ReferenceTime: 150
+  m_ReferenceTime: 50
   m_EventLevelCompleted:
     m_PersistentCalls:
       m_Calls: []

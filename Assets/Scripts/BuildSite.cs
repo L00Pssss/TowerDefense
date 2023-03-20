@@ -12,12 +12,13 @@ namespace TowerDefense
         {
             if (towers == null || towers.Length == 0)
             {
-                buildableTowers = towers;
+                
+                Destroy(transform.parent.gameObject);
             }
             else
             {
-                Destroy(transform.parent.gameObject);
-                
+                buildableTowers = towers;
+
             }
         }
 

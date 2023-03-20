@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,8 @@ namespace TowerDefense
     {
         [SerializeField] private UpgradeAsset_UI m_asset;
         [SerializeField] private Image m_upgradeIcon;
-        [SerializeField] private int m_costNumber = 0;
+        [SerializeField] private int m_costMana = 0;
+        [SerializeField] private int m_costGold = 0;
         [SerializeField] private TextMeshProUGUI m_level, m_costText;
         [SerializeField] private Button m_buyButton;
 
@@ -17,21 +19,39 @@ namespace TowerDefense
         {
             m_upgradeIcon.sprite = m_asset.sprite;
             var savedLevel = Upgrades.GetUpgradeLevel(m_asset);
-     
-            if (savedLevel >= m_asset.costByLevel.Length)
+
+            if (savedLevel >= m_asset.costByLevelGold.Length && m_asset.ManaOrGold == false)
             {
                 m_level.text = $"Level:{savedLevel} (MAX)";
                 m_buyButton.interactable = false;
                 m_buyButton.transform.Find("Start_Image").gameObject.SetActive(false);
                 m_buyButton.transform.Find("Text (TMP)").gameObject.SetActive(false);
                 m_costText.text = "X";
-                m_costNumber = int.MaxValue;
+                m_costGold = int.MaxValue;
             }
-            else
+            if (savedLevel >= m_asset.costByLevelMana.Length && m_asset.ManaOrGold == true)
             {
-                m_level.text = $"Lvl: {savedLevel + 1}";
-                m_costNumber = m_asset.costByLevel[savedLevel];
-                m_costText.text = m_costNumber.ToString();
+                m_level.text = $"Level:{savedLevel} (MAX)";
+                m_buyButton.interactable = false;
+                m_buyButton.transform.Find("Start_Image").gameObject.SetActive(false);
+                m_buyButton.transform.Find("Text (TMP)").gameObject.SetActive(false);
+                m_costText.text = "X";
+                m_costMana = int.MaxValue;
+            }
+            if (savedLevel < m_asset.costByLevelMana.Length || savedLevel < m_asset.costByLevelGold.Length)
+            {             
+                if (m_asset.ManaOrGold == false)
+                {
+                    m_level.text = $"Lvl: {savedLevel + 1}";
+                    m_costGold = m_asset.costByLevelGold[savedLevel];
+                    m_costText.text = m_costGold.ToString();
+                }
+                if (m_asset.ManaOrGold == true)
+                {
+                    m_level.text = $"Lvl: {savedLevel + 1}";
+                    m_costMana = m_asset.costByLevelMana[savedLevel];
+                    m_costText.text = m_costMana.ToString();
+                }
             }
             
         }
@@ -40,9 +60,16 @@ namespace TowerDefense
             Upgrades.BuyUpgrade(m_asset);
             Initialize();
         }
-        public void CheckCost(int m_money)
+        public void CheckCost(int value, string name)
         {
-            m_buyButton.interactable = m_money >= m_costNumber;
+            if (name == "m_money")
+            {
+                m_buyButton.interactable = value >= m_costGold;
+            }
+            if (name == "m_mana")
+            {
+                m_buyButton.interactable = value >= m_costMana;
+            }
         }
     }
 }

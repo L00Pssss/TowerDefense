@@ -21,5 +21,5 @@ MonoBehaviour:
   Mode: 2
   RadiusDetection: 3
   requiredUpgrade: {fileID: 11400000, guid: 3fb62743bcc03cf4fb8eddc7e5bd8c56, type: 2}
-  requiredUpgradeLevel: 0
+  requiredUpgradeLevel: 2
   m_UpgradesTo: []

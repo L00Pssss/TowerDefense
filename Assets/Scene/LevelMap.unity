@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5668964, y: 0}
   m_AnchorMax: {x: 0.9833542, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: -0.000012397766}
+  m_AnchoredPosition: {x: -0.000015258789, y: -0.000011444092}
   m_SizeDelta: {x: 0, y: -0.000011444092}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &15594598
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_DoNotDestroyOnLoad: 1
   m_complitonData:
   - episode: {fileID: 11400000, guid: 7458dbc53614b604295ef557d8395054, type: 2}
-    score: 0
+    score: 3
   - episode: {fileID: 11400000, guid: 2cfc91d8608653342ab183be40fa9f14, type: 2}
     score: 0
   - episode: {fileID: 11400000, guid: 409c4cd605afd7f4eb8150f75dfc9d80, type: 2}
@@ -367,10 +367,19 @@ MonoBehaviour:
   m_save:
   - asset: {fileID: 11400000, guid: 97ed07b198a39e34983b3cb8d4cccd68, type: 2}
     level: 0
+    m_typeBuy: 0
   - asset: {fileID: 11400000, guid: 8c1966719a86347438d188e22d097e96, type: 2}
     level: 0
+    m_typeBuy: 0
   - asset: {fileID: 11400000, guid: 3fb62743bcc03cf4fb8eddc7e5bd8c56, type: 2}
     level: 0
+    m_typeBuy: 0
+  - asset: {fileID: 11400000, guid: e4f4b92a410b184499af51af1d7c1b65, type: 2}
+    level: 0
+    m_typeBuy: 1
+  - asset: {fileID: 11400000, guid: 8763aa9b6bed489489cb085ccd905007, type: 2}
+    level: 0
+    m_typeBuy: 1
 --- !u!1001 &289287745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -398,6 +407,10 @@ PrefabInstance:
       propertyPath: m_asset
       value: 
       objectReference: {fileID: 11400000, guid: 8763aa9b6bed489489cb085ccd905007, type: 2}
+    - target: {fileID: 7118547155475761212, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
+      propertyPath: m_TypeBuy
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7118547155475761212, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
       propertyPath: m_costText
       value: 
@@ -502,6 +515,10 @@ PrefabInstance:
       propertyPath: m_fontSizeMin
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7118547156429757837, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
+      propertyPath: m_Name
+      value: ButtonMage
+      objectReference: {fileID: 0}
     - target: {fileID: 7118547157171994410, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
       propertyPath: m_Name
       value: ImageUpgrade
@@ -559,7 +576,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8715874, y: 0.8866704}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &571251364 stripped
@@ -771,6 +788,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e4f4b92a410b184499af51af1d7c1b65, type: 2}
     - target: {fileID: 7118547155475761212, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
+      propertyPath: m_TypeBuy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118547155475761212, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
       propertyPath: m_costText
       value: 
       objectReference: {fileID: 1543664122}
@@ -778,6 +799,14 @@ PrefabInstance:
       propertyPath: m_upgradeIcon
       value: 
       objectReference: {fileID: 1055139990}
+    - target: {fileID: 7118547155475761212, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
+      propertyPath: m_upgrades.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118547155475761212, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
+      propertyPath: m_upgrades.Array.data[0]
+      value: 
+      objectReference: {fileID: 240268508}
     - target: {fileID: 7118547155475761215, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -873,6 +902,10 @@ PrefabInstance:
     - target: {fileID: 7118547156306010453, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
       propertyPath: m_fontSizeMin
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118547156429757837, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
+      propertyPath: m_Name
+      value: ButtonMage
       objectReference: {fileID: 0}
     - target: {fileID: 7118547157171994410, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
       propertyPath: m_Name
@@ -1108,7 +1141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7328625, y: 0.8866704}
   m_AnchorMax: {x: 0.8715874, y: 0.9933352}
-  m_AnchoredPosition: {x: -0.02999878, y: 0.000030517578}
+  m_AnchoredPosition: {x: -0.030029297, y: 0}
   m_SizeDelta: {x: 0.06, y: -0.000005722}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1055139990 stripped
@@ -1355,11 +1388,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_money: 0
+  m_mana: 0
   m_moneyText: {fileID: 15594598}
-  m_sales:
+  m_manaText: {fileID: 1804105881}
+  m_salesGold:
   - {fileID: 516551139}
   - {fileID: 1329851982}
   - {fileID: 1230708976}
+  m_salesMana:
   - {fileID: 1062440734}
   - {fileID: 2055032312}
 --- !u!1001 &1435884461
@@ -1498,6 +1534,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 998315938}
     - target: {fileID: 7118547155475761212, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
+      propertyPath: upgradeShop
+      value: 
+      objectReference: {fileID: 1367063219}
+    - target: {fileID: 7118547155475761212, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
       propertyPath: m_upgradeIcon
       value: 
       objectReference: {fileID: 99326866}
@@ -1596,6 +1636,10 @@ PrefabInstance:
     - target: {fileID: 7118547156306010453, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
       propertyPath: m_fontSizeMin
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118547156429757837, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
+      propertyPath: m_Name
+      value: ButtonGold
       objectReference: {fileID: 0}
     - target: {fileID: 7118547157171994410, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
       propertyPath: m_Name
@@ -1715,7 +1759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13364579, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000051498413, y: 0.06694031}
+  m_AnchoredPosition: {x: 0.00005340576, y: 0.06694031}
   m_SizeDelta: {x: 0, y: 0.40050006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1767912341
@@ -1791,7 +1835,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.51539415, y: 0.066647954}
   m_AnchorMax: {x: 1, y: 0.8666704}
-  m_AnchoredPosition: {x: -0.000011444092, y: 2.0005}
+  m_AnchoredPosition: {x: -0.000015258789, y: 2.0004997}
   m_SizeDelta: {x: 0.2, y: 2.0005}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1804105881
@@ -1942,7 +1986,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.052423317, y: 0}
   m_AnchorMax: {x: 0.37681746, y: 1}
-  m_AnchoredPosition: {x: -0.000034332275, y: 0.0002603531}
+  m_AnchoredPosition: {x: -0.000030517578, y: 0.0002593994}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1841182280
@@ -2152,7 +2196,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.4
+  m_fontSize: 32.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2299,7 +2343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7118547155475761215, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.2579956
+      value: -0.25805664
       objectReference: {fileID: 0}
     - target: {fileID: 7118547155475761215, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2324,6 +2368,10 @@ PrefabInstance:
     - target: {fileID: 7118547156306010453, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
       propertyPath: m_fontSizeMin
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118547156429757837, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
+      propertyPath: m_Name
+      value: ButtonGold
       objectReference: {fileID: 0}
     - target: {fileID: 7118547157171994410, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
       propertyPath: m_Name
@@ -2687,6 +2735,10 @@ PrefabInstance:
     - target: {fileID: 7118547156306010453, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
       propertyPath: m_fontSizeMin
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118547156429757837, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
+      propertyPath: m_Name
+      value: ButtonGold
       objectReference: {fileID: 0}
     - target: {fileID: 7118547157171994410, guid: 681bfc0fdc4c675408025870e8c123ac, type: 3}
       propertyPath: m_Name
